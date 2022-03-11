@@ -1,0 +1,1274 @@
+@use "sass:math";
+
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Functions
+@import "bootstrap/functions.scss";
+
+// Assets-Path (without trailing slash.
+// Applications may set this to '~@datev/webapp-theme-crick/assets' when importing
+// SCSS files in their own SCSS theme and building with webpack.
+$dna-assets-path: ".." !default;
+
+// DNA - Base rem-size
+//
+// central value that converts the browsers base-font-setting from 16px to 10px on which all rem-values are based
+// conversion is made for better readability of rem-values
+// changing this value scales *everything*
+//
+// Note: Font-scaling via browser or OS still works
+
+$dna-rem-factor: 0.625em;
+
+
+//
+// Color system
+//
+
+//// DNA-Farben --------------------------------------
+
+//Hellgrün-Werte (YG)
+$dna-yg100: #90d033; // DO NOT USE AS VARIABLE
+$dna-yg85: #a1d751; // DO NOT USE AS VARIABLE
+$dna-yg75: #acdc66; // DO NOT USE AS VARIABLE
+$dna-yg70: #b1de70; // DO NOT USE AS VARIABLE
+$dna-yg60: #bce385; // DO NOT USE AS VARIABLE
+$dna-yg50: #c7e799; // DO NOT USE AS VARIABLE
+$dna-yg40: #d3ecad; // DO NOT USE AS VARIABLE
+$dna-yg30: #ddf1c1; // DO NOT USE AS VARIABLE
+$dna-yg20: #e9f6d6; // DO NOT USE AS VARIABLE
+$dna-yg10: #f4faea; // DO NOT USE AS VARIABLE
+
+$dna-weiss: #FFFFFF;
+$dna-weiss-A: #FBFBFA;
+
+//Hellgrau-Werte
+$dna-hellgrau: #F3F2EF;
+$dna-hellgrau-A: #f7f7f5;
+
+//Mittelgrau-Werte
+$dna-mittelgrau-E: #f6f5f4;
+$dna-mittelgrau: #E4E3E2;
+$dna-mittelgrau-B: #CBCAC9;
+$dna-mittelgrau-A: #b8b7b7;
+$dna-mittelgrau-D: #a3a2a2; // only fpr $dna-Text-C
+$dna-mittelgrau-C: #8D8B8B;
+
+//Dunkelgrau-Werte
+$dna-dunkelgrau: #656C6A;
+
+//Hellgrün-Werte
+$dna-hellgruen-A: $dna-yg100;
+$dna-hellgruen-C: $dna-yg75;
+$dna-hellgruen: $dna-yg60;
+$dna-hellgruen-D: $dna-yg40;
+$dna-hellgruen-E: $dna-yg30;
+$dna-hellgruen-F: $dna-yg20;
+$dna-hellgruen-G: $dna-yg10;
+
+//Mittelgrün-Werte
+$dna-mittelgruen: #5EB226;
+$dna-mittelgruen-A: #489e10; //#3f9600;
+$dna-dunkelgruen: #1A790A;
+
+//Petrol-Werte
+$dna-petrol: #039A9A;
+$dna-petrol-F: #007777;
+
+//Text-Farben
+$dna-text: #0F0F0F;
+$dna-text-A: #7B7B7B;
+$dna-text-B: #656363;
+$dna-text-C: $dna-mittelgrau-D;
+$dna-text-D: #444242;
+
+//Auszeichnugnsfarben
+$dna-rot: #ea0000;
+$dna-gelb: #FFBA00;
+$dna-blau: #3FA4DA;
+
+//Weitere
+$dna-schatten: #4b5059;
+$dna-hellgelb: #fefece;
+
+//** Focus
+$dna-focus: $dna-mittelgruen;
+
+//** Borders
+$dna-border-dark: $dna-mittelgrau-C;
+$dna-border-light: $dna-mittelgrau-A; // --> replace?
+$dna-border-lighter: $dna-mittelgrau-B;
+
+$dna-border-lightest: rgba(black, math.div(7.5%, 100.0%));
+$dna-border-lightest-disabled: rgba(black, math.div(12%, 100.0%));
+
+//** Mouseover / Pressed / Select
+// Neutral
+$dna-hover-bg: rgba(0, 0, 0, 0.06);
+$dna-pressed-bg: rgba(0, 0, 0, 0.09);
+$dna-active-bg: $dna-pressed-bg;
+
+//Primary
+$dna-hover-primary-bg: $dna-hellgruen-E;
+$dna-pressed-primary-bg: $dna-hellgruen-D;
+$dna-selected-bg: $dna-hellgruen;
+$dna-selected-hover-primary-bg: $dna-hellgruen-C;
+$dna-selected-pressed-primary-bg: $dna-hellgruen-A;
+
+//**** Schatten
+$dna-shadow-color: $dna-schatten; //ToDo: ersetzen durch "dna-schatten"
+//** Farbe für Schatten von panels, tables etc.
+$dna-shadow: rgba($dna-schatten, math.div(20%, 100.0%));
+//** Farbe für Schatten von popovers etc.
+$dna-shadow-dark: rgba($dna-schatten, math.div(45%, 100.0%));
+//** Farbe für Schatten von Buttons etc.
+$dna-shadow-darkest: rgba($dna-schatten, math.div(55%, 100.0%));
+//** Farbe für Schatten von Buttons etc.
+$dna-shadow-extra-dark: rgba($dna-schatten, math.div(70%, 100.0%));
+
+// -----------------------------------
+
+// stylelint-disable
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$grays: () !default;
+$grays: map-merge((
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+), $grays);
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$colors: () !default;
+$colors: map-merge((
+    "blue":       $blue,
+    "indigo":     $indigo,
+    "purple":     $purple,
+    "pink":       $pink,
+    "red":        $red,
+    "orange":     $orange,
+    "yellow":     $yellow,
+    "green":      $green,
+    "teal":       $teal,
+    "cyan":       $cyan,
+    "white":      $white,
+    "gray":       $gray-600,
+    "gray-dark":  $gray-800
+), $colors);
+
+$primary:       #8cd250 !default;
+$secondary:     $gray-600 !default;
+$success:       $dna-hellgruen-A !default;
+$info:          $dna-blau !default;
+$warning:       $dna-gelb !default;
+$danger:        $dna-rot !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+), $theme-colors);
+// stylelint-enable
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval:      8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 150 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: $gray-900 !default;
+$yiq-text-light: $white !default;
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret:              true !default;
+$enable-rounded:            true !default;
+$enable-shadows:            false !default;
+$enable-gradients:          false !default;
+$enable-transitions:        true !default;
+$enable-hover-media-query:  false !default; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes:       true !default;
+$enable-print-styles:       true !default;
+
+
+// DNA Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+// stylelint-disable
+$spacer: rem(8px) !default;
+$spacers: () !default;
+$spacers: map-merge((
+    0: 0,
+    'hx': ($spacer * .5),    // 1
+    '1x': $spacer,           // 2
+    '1hx': ($spacer * 1.5),  // 3
+    '2x': ($spacer * 2),     // 4
+    '3x': ($spacer * 3),     // 5
+    '4x': ($spacer * 4),     // 6
+    '5x': ($spacer * 5),     // 7
+    '8x': ($spacer * 8)      // 8
+), $spacers);
+
+// variables
+$dna-spacer-hx:  map-get($spacers, 'hx');
+$dna-spacer-1x:  map-get($spacers, '1x');
+$dna-spacer-1hx: map-get($spacers, '1hx');
+$dna-spacer-2x:  map-get($spacers, '2x');
+$dna-spacer-3x:  map-get($spacers, '3x');
+$dna-spacer-4x:  map-get($spacers, '4x');
+$dna-spacer-5x:  map-get($spacers, '5x');
+$dna-spacer-8x:  map-get($spacers, '8x');
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+$sizes: map-merge((
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%
+), $sizes);
+// stylelint-enable
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                   $dna-hellgrau !default;
+$body-color:                $dna-text !default;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                $dna-dunkelgruen !default; // #006699;
+$link-decoration:           none !default;
+$link-hover-color:          $dna-mittelgruen-A !default;
+$link-hover-decoration:     underline !default;
+
+// Paragraphs
+//
+// Style p element.
+
+$paragraph-margin-bottom:   rem(10px) !default;
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 640px,
+    md: 992px,
+    lg: 1200px,
+    xl: 1560px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+    sm: 640px,
+    md: 992px,
+    lg: 1200px,
+    xl: 1560px
+) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:                12 !default;
+$grid-gutter-width:           rem(32px) !default;
+//** DNA: Padding between columns within FORMs. Gets divided in half for the left and right.
+$dna-grid-form-gutter-width:  rem(12px);
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$line-height-lg:              1.5 !default;
+$line-height-sm:              1.5 !default;
+
+$border-width:                rem(1px) !default;
+$border-color:                $gray-300 !default;
+
+$border-radius:               rem(5px) !default;
+$border-radius-lg:            rem(6px) !default;
+$border-radius-sm:            rem(3px) !default;
+$dna-border-radius-xl:        rem(25px) !default;
+
+$component-active-color:      $body-color !default;
+$component-active-bg:         $dna-pressed-primary-bg !default;
+
+$caret-width:                 .3em !default;
+
+$transition-base:             all .2s ease-in-out !default;
+$transition-fade:             opacity .15s linear !default;
+$transition-collapse:         height .35s ease !default;
+
+
+$dna-padding-base-vertical: rem(3px);
+$dna-padding-base-horizontal: rem(8px);
+
+$dna-padding-medium-vertical: rem(6px);
+$dna-padding-medium-horizontal: rem(12px);
+
+$dna-padding-large-vertical: rem(8px);
+$dna-padding-large-horizontal: rem(12px);
+
+$dna-padding-small-vertical: rem(2px);
+
+// DNA: Padding for boxes like panels, alerts,...;
+$dna-box-padding-base: rem(20px);
+$dna-box-padding-xs: rem(12px);
+
+
+// Fonts ----------------------------------------------------------------
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      "Segoe UI", "Noto Sans Display", "Arial", sans-serif !default;
+$dna-font-family-serif:       "Compatil DATEV W01 Regular", "Noto Serif", "Palatino Linotype", serif;
+$font-family-monospace:       Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:            $font-family-sans-serif !default;
+//DNA Unicode Complete Font:
+$dna-font-family-noto-serif: "Noto Serif", "Palatino Linotype", serif;
+// stylelint-enable value-keyword-case
+
+$font-size-base:              rem(14px) !default; // DNA
+$font-size-lg:                $font-size-base + rem(4px) !default; // DNA
+$font-size-sm:                rem(13px) !default; // DNA
+$dna-font-size-md:            $font-size-base + rem(1px); // DNA
+
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+
+$font-weight-base:            $font-weight-normal !default;
+
+$line-height-base:            1.42857 !default; // DNA: 20px for font-size 14px
+$dna-line-height-paragraph:   $line-height-base; // deprecated since 3.0.0
+$dna-line-height-lg:          1.375;
+
+
+// Headings -----
+
+$h1-font-size:                rem(32px) !default; // 32px
+$h2-font-size:                rem(24px) !default; // 24px
+$h3-font-size:                rem(21px) !default; // 21px
+$h4-font-size:                rem(17px) !default; // 17px
+$h5-font-size:                rem(16px) !default; // 16px
+$h6-font-size:                rem(14px) !default; // 14px
+
+// DNA Noto font-sizes
+$dna-h1-noto-font-size:       rem(30px);
+$dna-h2-noto-font-size:       rem(22px);
+$dna-h3-noto-font-size:       rem(19.5px);
+
+$headings-margin-bottom:      $spacer !default; // DNA
+$headings-font-family:        $dna-font-family-serif !default;
+$headings-font-weight:        $font-weight-normal !default;
+$headings-line-height:        1.175 !default; // DNA für Compatil
+$headings-color:              $dna-petrol !default;
+
+// kleinere Überschriften
+$dna-headings-small-font-weight: 600;
+$dna-headings-small-line-height: 1.3; // DNA für Segoe UI
+
+$dna-h1-color:                $headings-color;
+$dna-h2-color:                darken($headings-color, 1);
+$dna-h3-color:                darken($headings-color, 2);
+$dna-h4-color:                $dna-text-D;
+$dna-h5-color:                $dna-text;
+$dna-h6-color:                $dna-text;
+
+// DNA Misc
+$dna-text-disabled-color:     $dna-text-A; // disabled Controls außer Radiobuttons und Checkboxen
+$dna-text-color-placeholder:  $dna-text-C; // DNA Farbe für Hilfstexte in inputs
+$dna-text-color-dark-bg:      $dna-weiss;
+
+
+// Bootstrap Misc
+
+$display1-size:               rem(60px) !default;
+$display2-size:               rem(55px) !default;
+$display3-size:               rem(45px) !default;
+$display4-size:               rem(35px) !default;
+
+$display1-weight:             300 !default;
+$display2-weight:             300 !default;
+$display3-weight:             300 !default;
+$display4-weight:             300 !default;
+$display-line-height:         $headings-line-height !default;
+
+$lead-font-size:              ($font-size-base * 1.25) !default;
+$lead-font-weight:            300 !default;
+
+$small-font-size:             80% !default;
+
+$text-muted:                  $gray-600 !default;
+
+$blockquote-small-color:      $gray-600 !default;
+$blockquote-font-size:        ($font-size-base * 1.25) !default;
+
+$hr-border-color:             rgba($black, .1) !default;
+$hr-border-width:             $border-width !default;
+
+$mark-padding:                .2em !default;
+
+$dt-font-weight:              $font-weight-bold !default;
+
+$kbd-box-shadow:              inset 0 rem(-1px) 0 rgba($black, .25) !default;
+$nested-kbd-font-weight:      $font-weight-bold !default;
+
+$list-inline-padding:         rem(5px) !default;
+
+$mark-bg:                     #fcf8e3 !default;
+
+$hr-margin-y:                 $spacer * 2 !default;
+
+
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-cell-padding:          rem(8px) !default;
+$table-cell-padding-sm:       rem(3px) !default;
+
+$table-bg:                    $dna-weiss !default;
+$table-accent-bg:             $dna-hellgrau-A !default;
+$table-hover-bg:              $dna-yg30 !default;
+$table-active-bg:             $dna-yg40 !default;
+
+$table-border-width:          $border-width !default;
+$table-border-color:          $dna-border-light !default;
+
+$table-head-bg:               $dna-mittelgrau !default;
+$table-head-color:            $gray-700 !default;
+
+$table-dark-bg:               $gray-900 !default;
+$table-dark-accent-bg:        rgba($white, .05) !default;
+$table-dark-hover-bg:         rgba($white, .075) !default;
+$table-dark-border-color:     lighten($gray-900, 7.5%) !default;
+$table-dark-color:            $body-bg !default;
+
+//** DNA: Padding for table cells top and bottom to create row-height of 2.8rem;
+$dna-table-cell-padding-vertical: $table-cell-padding;
+//** DNA: Padding for table cells in the table head top and bottom to create row height of 4rem;
+$dna-table-head-padding-vertical: rem(12px);
+//** DNA: padding for first and last table cells for outer padding;
+$dna-table-cell-padding-outer: $dna-box-padding-base;
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+$input-btn-padding-y:         $dna-padding-base-vertical !default;
+$input-btn-padding-x:         $dna-padding-base-horizontal !default;
+$input-btn-line-height:       $line-height-base !default;
+
+$input-btn-focus-width:       rem(2px) !default;
+$input-btn-focus-color:       rgba($component-active-bg, .25) !default;
+$input-btn-focus-box-shadow:  0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
+
+$input-btn-padding-y-sm:      rem(2.5px) !default;
+$input-btn-padding-x-sm:      rem(5px) !default;
+$input-btn-line-height-sm:    $line-height-sm !default;
+
+$input-btn-padding-y-lg:      rem(5px) !default;
+$input-btn-padding-x-lg:      rem(10px) !default;
+$input-btn-line-height-lg:    $line-height-lg !default;
+
+$input-btn-border-width:      $border-width !default;
+
+$dna-input-btn-height-inner:  ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+
+$btn-padding-y:               $input-btn-padding-y !default;
+$btn-padding-x:               $input-btn-padding-x !default;
+$btn-line-height:             $input-btn-line-height !default;
+
+$btn-padding-y-sm:            $input-btn-padding-y-sm !default;
+$btn-padding-x-sm:            $input-btn-padding-x-sm !default;
+$btn-line-height-sm:          $input-btn-line-height-sm !default;
+
+$btn-padding-y-lg:            $input-btn-padding-y-lg !default;
+$btn-padding-x-lg:            $input-btn-padding-x-lg !default;
+$btn-line-height-lg:          $input-btn-line-height-lg !default;
+
+$btn-border-width:            $input-btn-border-width !default;
+
+$btn-font-weight:             600 !default;
+$btn-box-shadow:              none !default;
+$btn-focus-width:             $input-btn-focus-width !default;
+$btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
+$btn-disabled-opacity:        .65 !default;
+$btn-active-box-shadow:       none !default;
+
+$btn-link-disabled-color:     rgba($dna-text-A, math.div(85%, 100.0%)) !default;
+
+$btn-block-spacing-y:         rem(5px) !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           rem(3px) !default;
+$btn-border-radius-lg:        rem(5px) !default;
+$btn-border-radius-sm:        $border-radius-sm !default;
+
+$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+$dna-btn-color:                         rgba($body-color, math.div(95%, 100.0%));
+$dna-btn-default-border:                $dna-mittelgrau-C;
+$dna-btn-primary-border:                $dna-mittelgruen;
+$dna-btn-danger-border:                 darken($danger, 10%);
+$dna-btn-border-width:                  $border-width;
+$dna-btn-height-base:                   ($dna-input-btn-height-inner + (2 * $dna-btn-border-width));
+//** Medium-Large `.btn-md` height
+$dna-btn-height-md:                     (($font-size-base * $input-btn-line-height) + ($dna-padding-large-vertical * 2));
+//** Breite des Image-Buttons
+$dna-btn-img-width-base:                $dna-btn-height-base;
+
+//** DNA Background Gradient
+$dna-btn-default-bg-top:          #faf9f7; // DNA
+$dna-btn-default-bg-bottom:       #f0efee; // DNA
+$dna-btn-default-active-bg-top:     $dna-weiss;
+
+$dna-btn-primary-bg-bottom:       #ACE04C; // DNA
+$dna-btn-primary-bg-top:          #BEEB6C; // DNA
+$dna-btn-primary-active-bg-top:   #cef587; // DNA
+
+$dna-btn-danger-bg-top:           #f9b2b2; // DNA
+$dna-btn-danger-bg-bottom:        #f79999; // DNA
+$dna-btn-danger-active-bg-bottom: #F48080; // DNA
+
+
+// Forms
+
+$label-margin-bottom:                   $dna-spacer-1x;
+
+$input-padding-y:                       $input-btn-padding-y !default;
+$input-padding-x:                       $input-btn-padding-x !default;
+$input-line-height:                     $input-btn-line-height !default;
+
+$input-padding-y-sm:                    $input-btn-padding-y-sm !default;
+$input-padding-x-sm:                    $input-btn-padding-x-sm !default;
+$input-line-height-sm:                  $input-btn-line-height-sm !default;
+
+$input-padding-y-lg:                    $input-btn-padding-y-lg !default;
+$input-padding-x-lg:                    $input-btn-padding-x-lg !default;
+$input-line-height-lg:                  $input-btn-line-height-lg !default;
+
+$input-bg:                              $dna-weiss !default;
+$input-disabled-bg:                     rgba($dna-mittelgrau-B, math.div(30%, 100.0%)) !default;
+//** DNA input required background color
+$dna-input-bg-required:                 $dna-hellgelb;
+
+$input-color:                           $body-color !default;
+$dna-input-color-disabled:              $dna-text-disabled-color;
+$input-border-color:                    $dna-border-dark !default;
+$input-border-width:                    $input-btn-border-width !default;
+$input-box-shadow:                      inset 0 1px 1px rgba($black, .075) !default;
+
+$input-border-radius:                   0 !default;
+$input-border-radius-lg:                0 !default;
+$input-border-radius-sm:                0 !default;
+
+$input-focus-bg:                        $input-bg !default;
+$input-focus-border-color:              $dna-focus;
+$input-focus-color:                     $input-color !default;
+$input-focus-width:                     $input-btn-focus-width !default;
+$input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
+
+$input-placeholder-color:               $dna-text-color-placeholder !default;
+
+$input-height-border:                   $input-border-width * 2 !default;
+
+$input-height-inner:                    $dna-input-btn-height-inner;
+$input-height:                          $input-height-inner + $input-border-width !default;
+
+$input-height-inner-sm:                 ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
+$input-height-sm:                       $input-height-inner-sm + $input-border-width !default;
+
+$input-height-inner-lg:                 ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
+$input-height-lg:                       $input-height-inner-lg + $input-border-width !default;
+
+$input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+$form-text-margin-top:                  rem(2.5px) !default;
+
+$form-check-input-gutter:               rem(12.5px) !default;
+$form-check-input-margin-y:             rem(3px) !default;
+$form-check-input-margin-x:             rem(2.5px) !default;
+
+$form-check-inline-margin-x:            rem(7.5px) !default;
+$form-check-inline-input-margin-x:      rem(3.125px) !default;
+
+$form-group-margin-bottom:              $dna-spacer-2x;
+
+
+$input-group-addon-color:               $input-color !default;
+$input-group-addon-bg:                  $gray-200 !default;
+$input-group-addon-border-color:        $input-border-color !default;
+
+$custom-control-gutter:                 rem(15px) !default;
+$custom-control-spacer-x:               rem(10px) !default;
+
+$custom-control-indicator-size:         rem(10px) !default;
+$custom-control-indicator-bg:           $gray-300 !default;
+$custom-control-indicator-bg-size:      50% 50% !default;
+$custom-control-indicator-box-shadow:   inset 0 rem(2.5px) rem(2.5px) rgba($black, .1) !default;
+
+$custom-control-indicator-disabled-bg:          $gray-200 !default;
+$custom-control-label-disabled-color:     $gray-600 !default;
+
+$custom-control-indicator-checked-color:        $component-active-color !default;
+$custom-control-indicator-checked-bg:           $component-active-bg !default;
+$custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
+$custom-control-indicator-checked-box-shadow:   none !default;
+
+$custom-control-indicator-focus-box-shadow:     0 0 0 1px $body-bg, $input-btn-focus-box-shadow !default;
+
+$custom-control-indicator-active-color:         $component-active-color !default;
+$custom-control-indicator-active-bg:            lighten($component-active-bg, 35%) !default;
+$custom-control-indicator-active-box-shadow:    none !default;
+
+$custom-checkbox-indicator-border-radius:       $border-radius !default;
+$custom-checkbox-indicator-icon-checked:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#{$custom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+$custom-checkbox-indicator-indeterminate-bg:    $component-active-bg !default;
+$custom-checkbox-indicator-indeterminate-color: $custom-control-indicator-checked-color !default;
+$custom-checkbox-indicator-icon-indeterminate:  str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='#{$custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-checkbox-indicator-indeterminate-box-shadow: none !default;
+
+$custom-radio-indicator-border-radius:          50% !default;
+$custom-radio-indicator-icon-checked:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='#{$custom-control-indicator-checked-color}'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+$custom-select-padding-y:           rem(3.75px) !default;
+$custom-select-padding-x:           rem(7.5px) !default;
+$custom-select-height:              $input-height !default;
+$custom-select-indicator-padding:   rem(10px) !default; // Extra padding to account for the presence of the background-image based indicator
+$custom-select-line-height:         $input-btn-line-height !default;
+$custom-select-color:               $input-color !default;
+$custom-select-disabled-color:      $gray-600 !default;
+$custom-select-bg:                  $white !default;
+$custom-select-disabled-bg:         $gray-200 !default;
+$custom-select-bg-size:             8px 10px !default; // In pixels because image dimensions
+$custom-select-indicator-color:     $gray-800 !default;
+$custom-select-indicator:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-select-border-width:        $input-btn-border-width !default;
+$custom-select-border-color:        $input-border-color !default;
+$custom-select-border-radius:       $border-radius !default;
+
+$custom-select-focus-border-color:  $input-focus-border-color !default;
+$custom-select-focus-box-shadow:    inset 0 1px 2px rgba($black, .075), 0 0 5px rgba($custom-select-focus-border-color, .5) !default;
+
+$custom-select-font-size-sm:        75% !default;
+$custom-select-height-sm:           $input-height-sm !default;
+
+$custom-select-font-size-lg:        125% !default;
+$custom-select-height-lg:           $input-height-lg !default;
+
+$custom-file-height:                $input-height !default;
+$custom-file-focus-border-color:    $input-focus-border-color !default;
+$custom-file-focus-box-shadow:      $input-btn-focus-box-shadow !default;
+
+$custom-file-padding-y:             $input-btn-padding-y !default;
+$custom-file-padding-x:             $input-btn-padding-x !default;
+$custom-file-line-height:           $input-btn-line-height !default;
+$custom-file-color:                 $input-color !default;
+$custom-file-bg:                    $input-bg !default;
+$custom-file-border-width:          $input-btn-border-width !default;
+$custom-file-border-color:          $input-border-color !default;
+$custom-file-border-radius:         $input-border-radius !default;
+$custom-file-box-shadow:            $input-box-shadow !default;
+$custom-file-button-color:          $custom-file-color !default;
+$custom-file-button-bg:             $input-group-addon-bg !default;
+$custom-file-text: (
+    en: "Browse"
+) !default;
+
+
+// Form validation
+$form-feedback-margin-top:          $form-text-margin-top !default;
+$form-feedback-font-size:           $small-font-size !default;
+$form-feedback-valid-color:         theme-color("success") !default;
+$form-feedback-invalid-color:       theme-color("danger") !default;
+
+$dna-state-success-border:          $dna-hellgruen-A;
+$dna-state-info-border:             $dna-blau;
+$dna-state-warning-border:          $dna-gelb;
+$dna-state-danger-border:           $dna-rot;
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+$dropdown-min-width:                rem(100px) !default;
+$dropdown-padding-y:                rem(5px) !default;
+$dropdown-spacer:                   rem(1.25px) !default;
+$dropdown-bg:                       $dna-weiss !default;
+$dropdown-border-color-color:             $dna-mittelgrau-C !default;
+$dropdown-border-color-radius:            $border-radius !default;
+$dropdown-border-color-width:             $border-width !default;
+$dropdown-divider-bg:               $dna-mittelgrau !default;
+$dropdown-box-shadow:               0 rem(5px) rem(10px) rgba($black, .175) !default;
+
+$dropdown-link-color:               $gray-900 !default;
+$dropdown-link-hover-color:         darken($gray-900, 5%) !default;
+$dropdown-link-hover-bg:            #f5f5f5 !default;
+
+$dropdown-link-active-color:        $component-active-color !default;
+$dropdown-link-active-bg:           $component-active-bg !default;
+
+$dropdown-link-disabled-color:      $gray-600 !default;
+
+$dropdown-item-padding-y:           rem(2.5px) !default;
+$dropdown-item-padding-x:           rem(15px) !default;
+
+$dropdown-header-color:             $gray-600 !default;
+
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+$zindex-dropdown:                   1000 !default;
+$zindex-sticky:                     1020 !default;
+$zindex-fixed:                      1030 !default;
+$zindex-modal-backdrop:             1040 !default;
+$zindex-modal:                      1050 !default;
+$zindex-popover:                    1060 !default;
+$zindex-tooltip:                    1070 !default;
+$dna-zindex-loader:                 1020; // was set to 1200 before. For more information, check issue #114 of this project.
+
+$dna-zindex-header:                 $zindex-sticky;
+$dna-zindex-alert:                  $zindex-sticky;
+$dna-zindex-sidebar:                $zindex-fixed;
+
+// Navs
+$nav-link-padding-y:                rem(5px) !default;
+$nav-link-padding-x:                rem(10px) !default;
+$nav-link-disabled-color:           $gray-600 !default;
+
+$nav-tabs-border-color:             $gray-300 !default;
+$nav-tabs-border-width:             $border-width !default;
+$nav-tabs-border-radius:            $border-radius !default;
+$nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
+$nav-tabs-link-active-color:        $gray-700 !default;
+$nav-tabs-link-active-bg:           $body-bg !default;
+$nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+
+$nav-pills-border-radius:           $border-radius !default;
+$nav-pills-link-active-color:       $component-active-color !default;
+$nav-pills-link-active-bg:          $component-active-bg !default;
+
+// Navbar
+
+$navbar-padding-y:                  math.div($spacer, 2) !default;
+$navbar-padding-x:                  $spacer !default;
+
+$navbar-nav-link-padding-x:         rem(5px) !default;
+
+$navbar-brand-font-size:            $font-size-lg !default;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height:                   ($font-size-base * $line-height-base + $nav-link-padding-y * 2) !default;
+$navbar-brand-height:               $navbar-brand-font-size * $line-height-base !default;
+$navbar-brand-padding-y:            math.div($nav-link-height - $navbar-brand-height, 2) !default;
+
+$navbar-toggler-padding-y:          rem(2.5px) !default;
+$navbar-toggler-padding-x:          rem(7.5px) !default;
+$navbar-toggler-font-size:          $font-size-lg !default;
+$navbar-toggler-border-radius:      $btn-border-radius !default;
+
+$navbar-dark-color:                 rgba($white, .5) !default;
+$navbar-dark-hover-color:           rgba($white, .75) !default;
+$navbar-dark-active-color:          $white !default;
+$navbar-dark-disabled-color:        rgba($white, .25) !default;
+$navbar-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-dark-toggler-border-color:  rgba($white, .1) !default;
+
+$navbar-light-color:                rgba($black, .5) !default;
+$navbar-light-hover-color:          rgba($black, .7) !default;
+$navbar-light-active-color:         rgba($black, .9) !default;
+$navbar-light-disabled-color:       rgba($black, .3) !default;
+$navbar-light-toggler-icon-bg:      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-light-toggler-border-color: rgba($black, .1) !default;
+
+// Pagination
+
+$pagination-padding-y:              rem(5px) !default;
+$pagination-padding-x:              rem(7.5px) !default;
+$pagination-padding-y-sm:           rem(2.5px) !default;
+$pagination-padding-x-sm:           rem(5px) !default;
+$pagination-padding-y-lg:           rem(7.5px) !default;
+$pagination-padding-x-lg:           rem(15px) !default;
+$pagination-line-height:            1.25 !default;
+
+$pagination-color:                  $link-color !default;
+$pagination-bg:                     $white !default;
+$pagination-border-width:           $border-width !default;
+$pagination-border-color:           $gray-300 !default;
+
+$pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
+
+$pagination-hover-color:            $link-hover-color !default;
+$pagination-hover-bg:               $gray-200 !default;
+$pagination-hover-border-color:     $gray-300 !default;
+
+$pagination-active-color:           $component-active-color !default;
+$pagination-active-bg:              $component-active-bg !default;
+$pagination-active-border-color:    $pagination-active-bg !default;
+
+$pagination-disabled-color:         $gray-600 !default;
+$pagination-disabled-bg:            $white !default;
+$pagination-disabled-border-color:  $gray-300 !default;
+
+
+// Jumbotron
+
+$jumbotron-padding:                 rem(20px) !default;
+$jumbotron-bg:                      $gray-200 !default;
+
+
+// Cards
+
+$dna-card-body-padding:             $dna-box-padding-base;
+
+$card-spacer-y:                     $dna-card-body-padding !default;
+$card-spacer-x:                     $dna-card-body-padding !default;
+$card-border-width:                 $border-width !default;
+$card-border-radius:                $border-radius !default;
+$card-border-color:                 $dna-border-lighter !default;
+$card-inner-border-radius:          $card-border-radius - $card-border-width !default;
+$card-cap-bg:                       $dna-weiss-A !default;
+$card-bg:                           $dna-weiss-A !default;
+
+$card-img-overlay-padding:          rem(12.5px) !default;
+
+$card-group-margin:                 math.div($grid-gutter-width, 2) !default;
+$card-deck-margin:                  $card-group-margin !default;
+
+$card-columns-count:                3 !default;
+$card-columns-gap:                  rem(12.5px) !default;
+$card-columns-margin:               $card-spacer-y !default;
+
+
+// Tooltips
+
+$tooltip-font-size:                 $font-size-sm !default;
+$tooltip-max-width:                 200px !default;
+$tooltip-color:                     $body-color !default;
+$tooltip-bg:                        $dna-weiss-A !default;
+$tooltip-border-radius:              $border-radius !default;
+$tooltip-opacity:                   .9 !default;
+$tooltip-padding-y:                 rem(2.5px) !default;
+$tooltip-padding-x:                 rem(5px) !default;
+$tooltip-margin:                    0 !default;
+
+$tooltip-arrow-width:               rem(8px) !default;
+$tooltip-arrow-height:              rem(4px) !default;
+$tooltip-arrow-color:               $tooltip-bg !default;
+
+
+// Popovers
+
+$popover-font-size:                 $font-size-sm !default;
+$popover-bg:                        $dna-weiss !default;
+$popover-max-width:                 rem(250px) !default;
+$popover-border-width:              rem(2px) !default;
+$popover-border-color:              $dna-border-light !default;
+$popover-border-radius:             $border-radius-sm !default;
+$popover-box-shadow:                0 rem(2.5px) rem(5px) rgba($black, .2) !default;
+
+$popover-header-bg:                 $popover-bg !default;
+$popover-header-color:              $headings-color !default;
+$popover-header-padding-y:          rem(5px) !default;
+$popover-header-padding-x:          rem(7.5px) !default;
+
+$popover-body-color:                $body-color !default;
+$popover-body-padding-y:            $popover-header-padding-y !default;
+$popover-body-padding-x:            $popover-header-padding-x !default;
+
+$popover-arrow-width:               rem(20px) !default;
+$popover-arrow-height:              rem(20px) !default;
+$popover-arrow-color:               $dna-mittelgruen !default;
+
+$popover-arrow-outer-color:         fade-in($popover-border-color, .05) !default;
+
+//** DNA Popover minimum width
+$dna-popover-min-width: rem(180px);
+$dna-popover-max-height: rem(240px);
+
+
+// Badges
+
+$badge-font-size:                   75% !default;
+$badge-font-weight:                 $font-weight-bold !default;
+$badge-padding-y:                   .25em !default;
+$badge-padding-x:                   .4em !default;
+$badge-border-radius:               $border-radius !default;
+
+$badge-pill-padding-x:              .6em !default;
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$badge-pill-border-radius:          rem(100px) !default;
+
+
+// Modals
+
+// Padding applied to the modal body
+$modal-inner-padding:            $dna-box-padding-base !default;
+
+$modal-dialog-margin:            rem(5px) !default;
+$modal-dialog-margin-y-sm-up:    rem(17.5px) !default;
+
+$modal-title-line-height:        $line-height-base !default;
+
+$modal-content-bg:               $dna-hellgrau !default;
+$modal-content-border-color:     $dna-border-light !default;
+$modal-content-border-width:     $border-width !default;
+$modal-content-box-shadow-xs:    0 rem(2px) rem(7px) $dna-shadow-dark !default;
+$modal-content-box-shadow-sm-up: $modal-content-box-shadow-xs !default;
+
+$modal-backdrop-bg:           $black !default;
+$modal-backdrop-opacity:      .2 !default;
+$modal-header-border-color:   transparent !default;
+$modal-footer-border-color:   transparent !default;
+$modal-header-border-width:   0 !default;
+$modal-footer-border-width:   0 !default;
+$modal-header-padding:        $modal-inner-padding $modal-inner-padding rem(10px) !default;
+
+$modal-lg:                          rem(900px) !default;
+$modal-md:                          rem(600px) !default;
+$modal-sm:                          rem(300px) !default;
+
+$modal-transition:                  transform .2s ease-out !default;
+
+
+// Alerts
+//
+// Define alert colors, border radius, and padding.
+
+$alert-padding-y:                   rem(16px) !default;
+$alert-padding-x:                   $alert-padding-y !default;
+$alert-margin-bottom:               0 !default;
+$alert-border-radius:               $border-radius !default;
+$alert-link-font-weight:            600 !default;
+$alert-border-width:                $border-width !default;
+
+$alert-bg-level:                    -10 !default;
+$alert-border-level:                -9 !default;
+$alert-color-level:                 6 !default;
+
+$dna-alert-bg:                      $dna-weiss-A;
+$dna-alert-width:                   rem(400px);
+$dna-alert-bar-height:              rem(4px);
+
+// Progress bars
+
+$progress-height:                   rem(10px) !default;
+$progress-font-size:                ($font-size-base * .75) !default;
+$progress-bg:                       $dna-dunkelgrau !default;
+$progress-border-radius:            $border-radius !default;
+$progress-box-shadow:               inset 0 rem(1px) rem(1px) rgba($black, .1) !default;
+$progress-bar-color:                $white !default;
+$progress-bar-bg:                   theme-color("primary") !default;
+$progress-bar-animation-timing:     1s linear infinite !default;
+$progress-bar-transition:           width .6s ease !default;
+
+// List group
+
+$list-group-bg:                     transparent !default;
+$list-group-border-color:           $dna-border-lighter !default;
+$list-group-border-width:           $border-width !default;
+$list-group-border-radius:          0 !default;
+
+// Padding
+$dna-list-group-padding:            rem(12px);
+$dna-list-group-condensed-padding-horizontal: rem(8px);
+
+$list-group-item-padding-y:         $dna-list-group-padding !default;
+$list-group-item-padding-x:         $dna-list-group-padding !default;
+
+// DNA:
+// set to none instead of "$dna-hover-primary-bg" because
+// focus of the list-group-item in bootstrap uses this variable for background,
+// but should not have any in the dna-theme
+// --> reduces overwrites
+$list-group-hover-bg:               none !default;
+// ToDo: Check if still needed
+// dna-variable for hover-bg-color:
+$dna-list-group-hover-bg: $dna-hover-primary-bg;
+
+$list-group-active-color:           $component-active-color !default;
+$list-group-active-bg:              $component-active-bg !default;
+$list-group-active-border-color:    $list-group-border-color !default;
+
+$list-group-disabled-color:         $dna-text-disabled-color !default;
+$list-group-disabled-bg:            $list-group-bg !default;
+
+$list-group-action-color:           $body-color !default;
+$list-group-action-hover-color:     $list-group-action-color !default;
+
+$list-group-action-active-color:    $body-color !default;
+$list-group-action-active-bg:       $gray-200 !default;
+
+
+
+
+// Image thumbnails
+
+$thumbnail-padding:                 rem(2.5px) !default;
+$thumbnail-bg:                      $body-bg !default;
+$thumbnail-border-width:            $border-width !default;
+$thumbnail-border-color:            #ddd !default;
+$thumbnail-border-radius:           $border-radius !default;
+$thumbnail-box-shadow:              0 1px 2px rgba($black, .075) !default;
+
+// Figures
+
+$figure-caption-font-size:          90% !default;
+$figure-caption-color:              $gray-600 !default;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y:              rem(8px) !default;
+$breadcrumb-padding-x:              rem(8px) !default;
+$breadcrumb-item-padding:           rem(5px) !default;
+
+$breadcrumb-margin-bottom:          rem(10px) !default;
+
+$breadcrumb-bg:                     transparent !default;   // DNA
+$breadcrumb-divider-color:          $gray-600 !default;
+$breadcrumb-active-color:           $dna-text-D !default;  // DNA
+$breadcrumb-divider:                " " !default;
+
+$dna-breadcrumb-color:              $dna-mittelgruen-A;
+
+// Carousel
+
+$carousel-control-color:            $white !default;
+$carousel-control-width:            15% !default;
+$carousel-control-opacity:          .5 !default;
+
+$carousel-indicator-width:          30px !default;
+$carousel-indicator-height:         3px !default;
+$carousel-indicator-spacer:         3px !default;
+$carousel-indicator-active-bg:      $white !default;
+
+$carousel-caption-width:            70% !default;
+$carousel-caption-color:            $white !default;
+
+$carousel-control-icon-width:       20px !default;
+
+$carousel-control-prev-icon-bg:     str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$carousel-control-next-icon-bg:     str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+$carousel-transition:               transform .6s ease !default;
+
+// Close
+
+$close-font-size:                   $font-size-base * 1.5 !default;
+$close-font-weight:                 $font-weight-bold !default;
+$close-color:                       $black !default;
+$close-text-shadow:                 0 1px 0 $white !default;
+
+// Code
+
+$code-font-size:                    87.5% !default;
+$code-color:                        $pink !default;
+
+$kbd-padding-y:                     rem(2px) !default;
+$kbd-padding-x:                     rem(4px) !default;
+$kbd-font-size:                     $code-font-size !default;
+$kbd-color:                         $white !default;
+$kbd-bg:                            $gray-900 !default;
+
+$pre-color:                         $gray-900 !default;
+$pre-scrollable-max-height:         340px !default;
+
+// Printing
+$print-page-size:                   a3 !default;
+$print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
+
+
+
+
+//== DNA-Reusables
+//
+//## Wiederverwendbare Fragmente
+
+// DNA Schattenkante
+$dna-shadow-edge-height: rem(10px);
+$dna-shadow-height: $dna-shadow-edge-height; //ToDo: ersetzen;
+
+// DNA
+$dna-border-width-base: rem(1px);
+
+//== DNA - Page Setup
+//
+//## General Frame of DNA-WebApp
+
+// DNA: Padding for pages
+$dna-page-padding-vertical: rem(40px);
+$dna-page-padding-horizontal: rem(80px);
+
+// DNA: Padding for pages - Breakpoint SM
+$dna-page-sm-padding-vertical: rem(24px);
+$dna-page-sm-padding-horizontal: rem(36px);
+
+// DNA: Padding for pages - Breakpoint XS
+$dna-page-xs-padding-vertical: rem(20px);
+$dna-page-xs-padding-horizontal: rem(28px);
+
+// DNA Sidebar
+//closed sidebar
+$dna-sidebar-width-min: rem(10px);
+//open sidebar
+$dna-sidebar-width: rem(250px);
+
+// DNA Header
+$dna-header-height: rem(88px);
+$dna-header-padding: rem(20px);
+// DNA Header Extended
+$dna-header-extended-height: rem(115px);
+
+// DNA Header S - for tablet view, where header isn't fixed
+$dna-header-sm-height: auto;
+$dna-header-sm-padding: rem(16px);
+$dna-header-sm-padding-left: rem(36px);
+
+// DNA Header XS - for mobile view, where header isn't fixed
+$dna-header-xs-height: auto;
+$dna-header-xs-padding: rem(8px);
+$dna-header-xs-padding-vertical: $dna-header-xs-padding;
+$dna-header-xs-padding-horizontal: rem(16px);
+$dna-header-xs-padding-left: $dna-page-xs-padding-horizontal;
+
+// DNA Footer
+$dna-footer-height: rem(88px);
+$dna-footer-padding: $dna-header-padding;
+$dna-footer-padding-vertical: $dna-footer-padding;
+$dna-footer-padding-horizontal: $dna-page-padding-horizontal;
+
+// DNA: Padding for Buttons
+$dna-btn-padding-base-vertical: rem(2px);
+$dna-btn-img-padding-base-horizontal: $dna-btn-padding-base-vertical;
+
+// DNA: Margin corrections for Icons in Buttons
+$dna-btn-icon-margin-left: rem(-3px);
+$dna-btn-icon-margin-right: rem(5px);
+
+// Padding base for borderless controls
+$dna-padding-borderless-vertical: ($dna-padding-base-vertical + $dna-border-width-base);
+
+$dna-line-height-md: 1.286;
+
+//** `<input>` border color
+$dna-input-border-disabled: $dna-border-light;
+$input-border-width: rem(1px);
+$dna-input-outline-color: $dna-border-lightest;
+
+//Checkboxes / Radiobuttons Icons
+$dna-checkmark-size: rem(16px);
+
+//** Default label text color
+$dna-label-color: $dna-text-D;
+
+
+
+//// DNA-Controls
+
+//== DNA - Datepicker (für ngx-bootstrap-datepicker)
+//
+//##
+$dna-datepicker-padding: $dna-padding-base-horizontal;
+$dna-datepicker-cell-height: rem(28px);
+$dna-datepicker-cell-width: $dna-datepicker-cell-height;
+
+//== DNA - Tagging Input
+//
+//##
+$dna-tagging-bg: $input-bg;
+$dna-tagging-options-maxheight: rem(122px);
+$dna-tagging-tag-line-height: rem(20px);
+$dna-tagging-tag-margin: rem(5px) 0 0 rem(5px);
+$dna-tagging-tag-shake-rotation: 5deg;
+
+//== DNA - Message-provider
+//
+//##
+//Position bzgl Input
+$dna-message-provider-left: rem(-9px);
+$dna-message-provider-top: rem(-7px);
+
+//== DNA - Toast
+//
+//##
+$dna-toast-bg: $dna-dunkelgrau;
+
+//==// Animations
+// we use transition-timing-function "ease" which is default
+
+$dna-transition-duration-short: 200ms;
+$dna-animation-duration-short: $dna-transition-duration-short;
+
+$dna-transition-duration-md: 400ms;

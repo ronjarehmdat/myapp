@@ -1,0 +1,76 @@
+/* Default Icon CSS*/
+
+.icon,
+.icon-color-hellgrau,
+.icon-color-weiss,
+.icon-color-schwarz,
+.icon-color-recht {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 62.667em 8.667em;
+}
+
+/* Icon Color */
+.icon {
+    font-size: 5px;
+    background-image: url("./image/sprite/sprite.svg");
+}
+
+.icon-color-hellgrau {
+    background-image: url("./image/sprite/sprite-hellgrau.svg");
+}
+
+.icon-color-weiss {
+    background-image: url("./image/sprite/sprite-weiss.svg");
+}
+
+.icon-color-schwarz {
+    background-image: url("./image/sprite/sprite-schwarz.svg");
+}
+
+.icon-color-recht {
+    background-image: url("./image/sprite/sprite-recht.svg");
+}
+
+input.icon-suche,
+i.icon-buch,
+i.icon-menue,
+i.icon-unlock,
+i.icon-check,
+i.icon-herzen{
+    height: 3.67em;
+}
+
+input .icon-suche {
+    font-size: 12px;
+}
+
+i.icon-buch,
+i.icon-menue,
+i.icon-herzen {
+    font-size: 10px;
+}
+
+div.menumobile i.icon-buch,
+div.menumobile i.icon-menue,
+div.menumobile i.icon-herzen {
+    font-size:7px;
+}
+
+div.menumobile a.nav-link i.icon {
+    margin-bottom: 4px;
+}
+
+i.icon-menue {
+    margin-right: 3px;
+}
+
+nav.navbar,
+a.nav-link {
+    padding: 0;
+    margin: 0;
+}
+
+a.nav-link:hover {
+    color: #5EB226;
+}

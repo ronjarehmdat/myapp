@@ -1,0 +1,28 @@
+//## ICONS
+
+//hide svg-sprites
+.svg-sprite {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+.icon-svg {
+    display: inline-block;
+    height: rem(20px);
+    width: rem(20px);
+}
+
+[disabled],
+.disabled {
+    .icon,
+    .icon-svg,
+    .caret {
+        @include icon-disabled();
+    }
+}
+

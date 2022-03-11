@@ -1,0 +1,76 @@
+/* Collapsible | Bootstrap-Card
+ *
+ *
+ * 	Collapsible-Styles; auf divs anzuwenden.
+ *
+ * .dna-collapsible
+ * .dna-collapsible-light   //light-Variante
+ * .dna-collapsible-title   //Title bar, serves as button
+ * .dna-collapsible-body    //collapsing area
+ */
+@import "variables";
+@import "bootstrap/mixins";
+@import "dna-mixins";
+
+$dna-collapsible-light-padding-left: rem(22px);
+
+// .dna-collapsible
+.dna-collapsible-light {
+    .dna-collapsible-bar {
+        display: block;
+        width: 100%;
+        padding: rem(3px) rem(8px) rem(4px) rem(2px);
+        text-decoration: none;
+        position: relative;
+
+        &:hover {
+            background: $dna-hover-bg;
+        }
+
+        &:active {
+            background: $dna-active-bg;
+        }
+    }
+
+    .dna-collapsible-bar-title {
+        padding-left: rem(20px); //$dna-collapsible-light-padding-left;
+        line-height: 125%;
+        margin: 0;
+        text-decoration: none;
+    }
+
+    .dna-collapsible-bar-icon {
+        display: block;
+        position: absolute;
+        width: rem(16px);
+        height: rem(16px);
+        vertical-align: bottom;
+        margin: rem(2px) rem(4px) rem(1px) rem(2px);
+
+        .icon-arrow {
+            display: inline-block;
+            margin: rem(2px);
+            border: none;
+            @include svg-sli-pfeil-rechts;
+            transform: rotate(90deg);
+            transition: transform $dna-transition-duration-md;
+        }
+    }
+
+    .dna-collapsible-body {
+        width: 100%;
+        padding: rem(12px) rem(12px) rem(12px) $dna-collapsible-light-padding-left;
+
+        > *:first-child {
+            margin-top: 0;
+        }
+    }
+
+    //Collapsed
+    .collapsed {
+        //Rotation des Pfeils beim Schließen
+        .icon-arrow {
+            transform: rotate(0deg);
+        }
+    }
+}

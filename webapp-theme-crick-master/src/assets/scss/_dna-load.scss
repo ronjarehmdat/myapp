@@ -1,0 +1,250 @@
+@use "sass:math";
+
+/*   DNA-Ladeanimation
+ *
+ *
+ * .dna-load-loop   - Unendliche Ladeanimation
+ *      .loader-overlay - Grafik mit Schatteneffekt
+ *      .loader         - Animation durch zwei rotierende Graue Halbringe auf grünem Grund
+ */
+$dna-load-loop--lg--image-size: 64; //no unit
+$dna-load-loop--lg--size: rem(64px);
+
+$dna-load-loop--md--image-size: 32; //no unit
+$dna-load-loop--md--size: rem(32px);
+
+$dna-load-loop--sm--image-size: 16; //no unit
+$dna-load-loop--sm--size: rem(16px);
+
+$dna-load-loop--padding: rem(4px); // darf nicht null sein
+
+$dna-load-loop-container-animation-duration: $dna-animation-duration-short;
+
+//== Ladeanimation Loop
+//
+// General Setup
+.dna-loader-loop {
+    position: relative;
+    padding: $dna-load-loop--padding;
+    //An
+    .loader {
+        // Größe des loaders; durch em relativ zur Größe des ganzen Elements (load-loop)
+        $loader-size-rel: .875em;
+
+        text-indent: -99999em;
+        position: relative;
+        width: $loader-size-rel;
+        height: $loader-size-rel;
+        margin: .0625em;
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        // Erzeugung der Kreisform
+        border-radius: 50%;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: math.div($loader-size-rel, 2);
+            height: $loader-size-rel;
+            top: 0;
+            left: 0;
+            animation: loop 1.85s infinite ease-in-out;
+            background-repeat: no-repeat;
+        }
+
+        &::before {
+            border-radius: $loader-size-rel 0 0 $loader-size-rel;
+            -ms-transform-origin: math.div($loader-size-rel, 2) math.div($loader-size-rel, 2);
+            transform-origin: math.div($loader-size-rel, 2) math.div($loader-size-rel, 2);
+            background-position: center right;
+        }
+
+        &::after {
+            border-radius: 0 $loader-size-rel $loader-size-rel 0;
+            left: math.div($loader-size-rel, 2);
+            -ms-transform-origin: 0 math.div($loader-size-rel, 2);
+            transform-origin: 0 math.div($loader-size-rel, 2);
+            background-position: center left;
+        }
+    }
+
+    .loaderOverlay {
+        display: inline-block;
+        position: absolute;
+        z-index: 99;
+        width: 1em;
+        height: 1em;
+        background-repeat: no-repeat;
+    }
+}
+
+//== Mixin für verschiedene Größen
+@mixin dna-loader-looping($dna-load-loop--size,               // *--sm, *--md oder *--lg
+                    $dna-load-loop--image-size,         // 16, 32 oder 64
+                    $dna-load-loop--shadow-blur,        // Schattentiefe entsprechend Größe
+                    $dna-load-loop--animation-duration, // Dauer des loops entsprechend Größe
+                    $dna-load-loop--animation-delay     // Verzögerung entsprechend Größe
+) {
+    .dna-loader-loop {
+        width: ($dna-load-loop--size + (2 * $dna-load-loop--padding));
+        //Font-Size bestimmt Größe des Loaders
+        font-size: $dna-load-loop--size;
+    }
+
+    .loader {
+        //grüner Ring
+        box-shadow: inset 0 0 0 $dna-load-loop--shadow-blur $dna-hellgruen-A;
+
+        &::before,
+        &::after {
+            animation-duration: $dna-load-loop--animation-duration;
+        }
+
+        &::before {
+            animation-delay: $dna-load-loop--animation-delay;
+            background-image: url("#{$dna-assets-path}/images/load-images/loader#{$dna-load-loop--image-size}_animationcake_2.png");
+            background-size: math.div($dna-load-loop--size, 2) $dna-load-loop--size;
+        }
+
+        &::after {
+            background-image: url("#{$dna-assets-path}/images/load-images/loader#{$dna-load-loop--image-size}_animationcake_1.png");
+            background-size: math.div($dna-load-loop--size, 2) $dna-load-loop--size;
+        }
+    }
+    .loaderOverlay {
+        background-image: url("#{$dna-assets-path}/images/load-images/loader#{$dna-load-loop--image-size}_overlay.png");
+        background-size: $dna-load-loop--size $dna-load-loop--size;
+    }
+}
+
+// Gross
+.dna-loader-loop-lg {
+    @include dna-loader-looping(
+        $dna-load-loop--size: $dna-load-loop--lg--size,
+        $dna-load-loop--image-size: $dna-load-loop--lg--image-size,
+        $dna-load-loop--shadow-blur: rem(7px),
+        $dna-load-loop--animation-duration: 1.85s,
+        $dna-load-loop--animation-delay: .5s);
+
+    // Layout: Center: mittig im Container;
+    .dna-loader-loop {
+        display: block;
+        margin: auto;
+        margin-top: -( math.div($dna-load-loop--lg--size, 2) + $dna-load-loop--padding);
+        top: 42%;
+    }
+}
+
+// Mittel
+.dna-loader-loop-md {
+    @include dna-loader-looping(
+        $dna-load-loop--size: $dna-load-loop--md--size,
+        $dna-load-loop--image-size: $dna-load-loop--md--image-size,
+        $dna-load-loop--shadow-blur: rem(5px),
+        $dna-load-loop--animation-duration: 1.5s,
+        $dna-load-loop--animation-delay: .25s);
+
+    // Layout: Center: mittig im Container;
+    .dna-loader-loop {
+        display: block;
+        margin: auto;
+        margin-top: -( math.div($dna-load-loop--md--size, 2) + $dna-load-loop--padding);
+        top: 42%;
+    }
+}
+
+//Klein
+.dna-loader-loop-sm {
+    @include dna-loader-looping(
+        $dna-load-loop--size: $dna-load-loop--sm--size,
+        $dna-load-loop--image-size: $dna-load-loop--sm--image-size,
+        $dna-load-loop--shadow-blur: rem(4px),
+        $dna-load-loop--animation-duration: 1.35s,
+        $dna-load-loop--animation-delay: .35s);
+
+    // Layout: Inline für kleinen Loop und darauf folgenden Text
+    .dna-loader-loop {
+        display: inline-block;
+
+        &,
+        & + * {
+            vertical-align: middle;
+        }
+    }
+}
+
+//Container-Element and Background
+.dna-loader-container {
+    z-index: $dna-zindex-loader;
+
+    &.dna-loader-loop-lg,
+    &.dna-loader-loop-md {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($dna-hellgrau, math.div(66%, 100.0%));
+    }
+
+    &.dna-loader-loop-sm {
+        display: inline-block;
+    }
+
+    animation: appear $dna-load-loop-container-animation-duration;
+}
+
+//Round edges for use within cards
+.card .dna-loader-container {
+    border-radius: $card-border-radius;
+}
+
+.dna-card-start .dna-loader-container {
+    border-bottom-left-radius: rem(25px);
+}
+
+//Hide everything
+.dna-loader-display-none {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $dna-load-loop-container-animation-duration, visibility 1ms $dna-load-loop-container-animation-duration;
+}
+
+// Animation Loop
+@-webkit-keyframes loop {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loop {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// Animation Appear
+@-webkit-keyframes appear {
+    0% {
+        background: rgba($dna-hellgrau, math.div(100%, 100.0%));
+    }
+    100% {
+        background: rgba($dna-hellgrau, math.div(66%, 100.0%));
+    }
+}
+
+@keyframes appear {
+    0% {
+        background: rgba($dna-hellgrau, math.div(100%, 100.0%));
+    }
+    100% {
+        background: rgba($dna-hellgrau, math.div(66%, 100.0%));
+    }
+}

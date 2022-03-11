@@ -1,0 +1,124 @@
+/* Dropdown
+ *
+ */
+datev-dropdown-button {
+    display: inline-block;
+}
+
+.dropdown {
+    .dropdown-toggle {
+        margin: 0;
+
+        .caret {
+            @include svg-sli-pfeil-runter-dims;
+            margin-bottom: rem(1px); //Positionskorrektur
+            margin-left: rem(5px);
+            border: none;
+            display: inline;
+        }
+
+        &.btn-img .caret {
+            margin-left: 0;
+            margin-top: rem(4px);
+        }
+
+        &::after {
+            height: auto;
+            width: auto;
+        }
+    }
+    .dropdown-toggle.btn-light::after {
+        content: none;
+    }
+
+    &.open {
+        > .dropdown-toggle.btn-default {
+            //im geöffneten Zustand soll der Button nicht "active" aussehen, sondern normal
+            background: linear-gradient($dna-btn-default-bg-top, $dna-btn-default-bg-bottom);
+            @include dna-btn-border;
+
+            &:focus {
+                border-bottom-color: $dna-focus;
+
+                &::after {
+                    z-index: ($zindex-dropdown - 1);
+                }
+            }
+
+            &:hover {
+                //hover wieder setzen
+                background: linear-gradient(darken($dna-btn-default-bg-top, 6%), darken($dna-btn-default-bg-bottom, 6%));
+            }
+
+            &:active {
+                background: linear-gradient(darken($dna-btn-default-bg-top, 9%), darken($dna-btn-default-bg-bottom, 9%)); // active wieder setzen
+            }
+        }
+
+        //Rotation des Pfeils beim Öffnen
+        .caret {
+            transform: rotate(-180deg);
+            transition: transform $dna-transition-duration-md;
+        }
+
+        .dropdown-menu {
+            margin-top: rem(1px);
+            display: block;
+        }
+    }
+}
+
+// Menü
+/*Animation zum Aufklappen des Menüs*/
+@keyframes slide {
+    0% {
+        display: block;
+        max-height: 0;
+    }
+
+    100% {
+        display: block;
+        max-height: rem(300px);
+    }
+}
+
+.dropdown-menu {
+    overflow-y: hidden;
+    border-radius: 0;
+    border: none;
+    @include dna-shadow-high;
+    @include transition(all .3s);
+    animation: slide .6s;
+    min-width: 100%;
+
+    > a {
+        line-height: 200%;
+        padding: rem(2px) rem(8px);
+        text-decoration: none;
+        color: $dna-text;
+
+        &:focus {
+            border: none;
+            outline: none;
+            background-color: $dna-selected-bg;
+        }
+
+        &:hover {
+            color: $dna-text;
+            background-color: $dna-hover-primary-bg;
+        }
+
+        &:active {
+            background-color: $dna-selected-hover-primary-bg;
+        }
+    }
+
+    > a.navigation-hover {
+        color: $dna-text;
+        background-color: $dna-hover-primary-bg;
+    }
+
+    > .divider {
+        margin: rem(1px) rem(3px);
+    }
+}

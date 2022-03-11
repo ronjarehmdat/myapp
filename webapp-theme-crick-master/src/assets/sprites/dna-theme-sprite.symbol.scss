@@ -1,0 +1,347 @@
+%svg-common {
+  background-image: url("#{$dna-assets-path}/sprites/dna-theme-sprite.symbol-d8bdaac1.svg");
+  background-repeat: no-repeat;
+}
+
+
+$svg-fi-fehler-16-height: rem(16px);
+$svg-fi-fehler-16-width: rem(16px);
+
+@mixin svg-fi-fehler-16 {
+  @extend %svg-common;
+  background-position: 95.23809523809524% 76.3157894736842%;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+@mixin svg-fi-fehler-16-dims {
+  height: rem(16px);
+  width: rem(16px);
+}
+.genepool .svg-fi-fehler-16-dims {
+  @include svg-fi-fehler-16-dims();
+}
+
+$svg-fi-fehler-32-height: rem(32px);
+$svg-fi-fehler-32-width: rem(32px);
+
+@mixin svg-fi-fehler-32 {
+  @extend %svg-common;
+  background-position: 23.529411764705884% 0;
+  height: rem(32px);
+  width: rem(32px);
+}
+
+@mixin svg-fi-fehler-32-dims {
+  height: rem(32px);
+  width: rem(32px);
+}
+.genepool .svg-fi-fehler-32-dims {
+  @include svg-fi-fehler-32-dims();
+}
+
+$svg-fi-hilfe-20-height: rem(20px);
+$svg-fi-hilfe-20-width: rem(20px);
+
+@mixin svg-fi-hilfe-20 {
+  @extend %svg-common;
+  background-position: 100% 0;
+  height: rem(20px);
+  width: rem(20px);
+}
+
+@mixin svg-fi-hilfe-20-dims {
+  height: rem(20px);
+  width: rem(20px);
+}
+.genepool .svg-fi-hilfe-20-dims {
+  @include svg-fi-hilfe-20-dims();
+}
+
+$svg-fi-information-16-height: rem(16px);
+$svg-fi-information-16-width: rem(16px);
+
+@mixin svg-fi-information-16 {
+  @extend %svg-common;
+  background-position: 76.19047619047619% 57.89473684210526%;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+@mixin svg-fi-information-16-dims {
+  height: rem(16px);
+  width: rem(16px);
+}
+.genepool .svg-fi-information-16-dims {
+  @include svg-fi-information-16-dims();
+}
+
+$svg-fi-information-32-height: rem(32px);
+$svg-fi-information-32-width: rem(32px);
+
+@mixin svg-fi-information-32 {
+  @extend %svg-common;
+  background-position: 70.58823529411765% 0;
+  height: rem(32px);
+  width: rem(32px);
+}
+
+@mixin svg-fi-information-32-dims {
+  height: rem(32px);
+  width: rem(32px);
+}
+.genepool .svg-fi-information-32-dims {
+  @include svg-fi-information-32-dims();
+}
+
+$svg-fi-kalender-16-height: rem(16px);
+$svg-fi-kalender-16-width: rem(16px);
+
+@mixin svg-fi-kalender-16 {
+  @extend %svg-common;
+  background-position: 76.19047619047619% 78.94736842105263%;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+@mixin svg-fi-kalender-16-dims {
+  height: rem(16px);
+  width: rem(16px);
+}
+.genepool .svg-fi-kalender-16-dims {
+  @include svg-fi-kalender-16-dims();
+}
+
+$svg-fi-minus-16-height: rem(16px);
+$svg-fi-minus-16-width: rem(16px);
+
+@mixin svg-fi-minus-16 {
+  @extend %svg-common;
+  background-position: 0 100%;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+@mixin svg-fi-minus-16-dims {
+  height: rem(16px);
+  width: rem(16px);
+}
+.genepool .svg-fi-minus-16-dims {
+  @include svg-fi-minus-16-dims();
+}
+
+$svg-fi-ok-20-height: rem(20px);
+$svg-fi-ok-20-width: rem(20px);
+
+@mixin svg-fi-ok-20 {
+  @extend %svg-common;
+  background-position: 100% 27.77777777777778%;
+  height: rem(20px);
+  width: rem(20px);
+}
+
+@mixin svg-fi-ok-20-dims {
+  height: rem(20px);
+  width: rem(20px);
+}
+.genepool .svg-fi-ok-20-dims {
+  @include svg-fi-ok-20-dims();
+}
+
+$svg-fi-ok-32-height: rem(32px);
+$svg-fi-ok-32-width: rem(32px);
+
+@mixin svg-fi-ok-32 {
+  @extend %svg-common;
+  background-position: 0 73.33333333333333%;
+  height: rem(32px);
+  width: rem(32px);
+}
+
+@mixin svg-fi-ok-32-dims {
+  height: rem(32px);
+  width: rem(32px);
+}
+.genepool .svg-fi-ok-32-dims {
+  @include svg-fi-ok-32-dims();
+}
+
+$svg-fi-warnung-16-height: rem(16px);
+$svg-fi-warnung-16-width: rem(16px);
+
+@mixin svg-fi-warnung-16 {
+  @extend %svg-common;
+  background-position: 19.047619047619047% 100%;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+@mixin svg-fi-warnung-16-dims {
+  height: rem(16px);
+  width: rem(16px);
+}
+.genepool .svg-fi-warnung-16-dims {
+  @include svg-fi-warnung-16-dims();
+}
+
+$svg-fi-warnung-32-height: rem(32px);
+$svg-fi-warnung-32-width: rem(32px);
+
+@mixin svg-fi-warnung-32 {
+  @extend %svg-common;
+  background-position: 47.05882352941177% 73.33333333333333%;
+  height: rem(32px);
+  width: rem(32px);
+}
+
+@mixin svg-fi-warnung-32-dims {
+  height: rem(32px);
+  width: rem(32px);
+}
+.genepool .svg-fi-warnung-32-dims {
+  @include svg-fi-warnung-32-dims();
+}
+
+$svg-sli-breadcrumb-height: rem(18px);
+$svg-sli-breadcrumb-width: rem(10px);
+
+@mixin svg-sli-breadcrumb {
+  @extend %svg-common;
+  background-position: 88.88888888888889% 54.054054054054056%;
+  height: rem(18px);
+  width: rem(10px);
+}
+
+@mixin svg-sli-breadcrumb-dims {
+  height: rem(18px);
+  width: rem(10px);
+}
+.genepool .svg-sli-breadcrumb-dims {
+  @include svg-sli-breadcrumb-dims();
+}
+
+$svg-sli-checkmark-height: rem(16px);
+$svg-sli-checkmark-width: rem(16px);
+
+@mixin svg-sli-checkmark {
+  @extend %svg-common;
+  background-position: 38.095238095238095% 100%;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+@mixin svg-sli-checkmark-dims {
+  height: rem(16px);
+  width: rem(16px);
+}
+.genepool .svg-sli-checkmark-dims {
+  @include svg-sli-checkmark-dims();
+}
+
+$svg-sli-lasche-height: rem(44px);
+$svg-sli-lasche-width: rem(16px);
+
+@mixin svg-sli-lasche {
+  @extend %svg-common;
+  background-position: 0 0;
+  height: rem(44px);
+  width: rem(16px);
+}
+
+@mixin svg-sli-lasche-dims {
+  height: rem(44px);
+  width: rem(16px);
+}
+.genepool .svg-sli-lasche-dims {
+  @include svg-sli-lasche-dims();
+}
+
+$svg-sli-pfeil-rechts-height: rem(14px);
+$svg-sli-pfeil-rechts-width: rem(8px);
+
+@mixin svg-sli-pfeil-rechts {
+  @extend %svg-common;
+  background-position: 97.82608695652173% 51.282051282051285%;
+  height: rem(14px);
+  width: rem(8px);
+}
+
+@mixin svg-sli-pfeil-rechts-dims {
+  height: rem(14px);
+  width: rem(8px);
+}
+.genepool .svg-sli-pfeil-rechts-dims {
+  @include svg-sli-pfeil-rechts-dims();
+}
+
+$svg-sli-pfeil-runter-height: rem(8.08px);
+$svg-sli-pfeil-runter-width: rem(14px);
+
+@mixin svg-sli-pfeil-runter {
+  @extend %svg-common;
+  background-position: 55.81395348837209% 38.13155386081983%;
+  height: rem(8.08px);
+  width: rem(14px);
+}
+
+@mixin svg-sli-pfeil-runter-dims {
+  height: rem(8.08px);
+  width: rem(14px);
+}
+.genepool .svg-sli-pfeil-runter-dims {
+  @include svg-sli-pfeil-runter-dims();
+}
+
+$svg-sli-radiobutton-height: rem(16px);
+$svg-sli-radiobutton-width: rem(16px);
+
+@mixin svg-sli-radiobutton {
+  @extend %svg-common;
+  background-position: 57.142857142857146% 100%;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+@mixin svg-sli-radiobutton-dims {
+  height: rem(16px);
+  width: rem(16px);
+}
+.genepool .svg-sli-radiobutton-dims {
+  @include svg-sli-radiobutton-dims();
+}
+
+$svg-sli-radiobutton-disabled-height: rem(16px);
+$svg-sli-radiobutton-disabled-width: rem(16px);
+
+@mixin svg-sli-radiobutton-disabled {
+  @extend %svg-common;
+  background-position: 76.19047619047619% 100%;
+  height: rem(16px);
+  width: rem(16px);
+}
+
+@mixin svg-sli-radiobutton-disabled-dims {
+  height: rem(16px);
+  width: rem(16px);
+}
+.genepool .svg-sli-radiobutton-disabled-dims {
+  @include svg-sli-radiobutton-disabled-dims();
+}
+
+$svg-sli-schliessen-height: rem(12px);
+$svg-sli-schliessen-width: rem(12px);
+
+@mixin svg-sli-schliessen {
+  @extend %svg-common;
+  background-position: 18.181818181818183% 40%;
+  height: rem(12px);
+  width: rem(12px);
+}
+
+@mixin svg-sli-schliessen-dims {
+  height: rem(12px);
+  width: rem(12px);
+}
+.genepool .svg-sli-schliessen-dims {
+  @include svg-sli-schliessen-dims();
+}

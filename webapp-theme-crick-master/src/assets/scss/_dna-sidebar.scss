@@ -1,0 +1,77 @@
+/*
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+/* Toggle Styles */
+@use "sass:math";
+
+@import "variables.scss";
+
+.dna-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: $dna-sidebar-width-min;
+    height: 100vh;
+    background: $dna-dunkelgrau;
+    transition: all 250ms ease;
+    z-index: $dna-zindex-sidebar;
+
+    &.open {
+        width: $dna-sidebar-width;
+        transition: all 250ms ease;
+    }
+}
+
+.dna-sidebar-body {
+    width: 100%;
+    overflow: hidden;
+    padding: rem(4px);
+}
+
+//Button to open sidebar
+.dna-sidebar-toggle {
+    position: absolute;
+    top: rem(80px);
+    right: (rem(4px) - $svg-sli-lasche-width); //rem(4px) is the overlap of the icon
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+    @include svg-sli-lasche-dims();
+
+    &:focus {
+        outline: none;
+    }
+}
+
+// For Sizes XS and SM, the sidebar lies on top of the page;
+@include media-breakpoint-down(sm) {
+    .dna-sidebar {
+        position: fixed;
+        z-index: $dna-zindex-sidebar;
+
+        &.open {
+            box-shadow: rem(2px) rem(2px) rem(1px) $dna-shadow-dark;
+        }
+    }
+
+    .dna-sidebar-overlay {
+        position: fixed;
+        height: 100vh;
+        background: rgba(black, math.div(15%, 100.0%));
+        z-index: ($zindex-fixed - 1);
+
+        &.open {
+            width: 100vw;
+        }
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .dna-sidebar-toggle {
+        top: 0;
+    }
+}

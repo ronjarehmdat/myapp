@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="lasche" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 44" style="enable-background:new 0 0 16 44;" xml:space="preserve">
+<filter  height="150%" id="inset-shadow" width="150%" x="0" y="0">
+	<feComponentTransfer  in="SourceAlpha">
+		<feFuncA  tableValues="1 0" type="table"></feFuncA>
+	</feComponentTransfer>
+	<feGaussianBlur  stdDeviation="3"></feGaussianBlur>
+	<feOffset  dx="-2" dy="2" result="offsetblur"></feOffset>
+	<feFlood  flood-color="black" flood-opacity="1" result="color"></feFlood>
+	<feComposite  in2="offsetblur" operator="in"></feComposite>
+	<feComposite  in2="SourceAlpha" operator="in"></feComposite>
+	<feMerge>
+		<feMergeNode  in="SourceGraphic"></feMergeNode>
+		<feMergeNode></feMergeNode>
+	</feMerge>
+</filter>
+<filter  height="300%" id="drop-shadow-lasche-menu" width="300%">
+	<feGaussianBlur  in="SourceGraphic" stdDeviation="1"></feGaussianBlur>
+	<feOffset  dx="1" dy="1" result="offsetblur"></feOffset>
+	<feFlood  flood-color="black" flood-opacity="0.3"></feFlood>
+	<feComposite  in2="offsetblur" operator="in"></feComposite>
+	<feMerge>
+		<feMergeNode></feMergeNode>
+		<feMergeNode  in="[input-image]"></feMergeNode>
+	</feMerge>
+</filter>
+<path id="lasche-flaeche" style="fill:#656C6A;" d="M4,2.906V0H0v43.906h4v-3c0-4,12-5,12-10c0-4,0-14,0-18
+	C16,7.906,4,6.906,4,2.906z"/>
+<g id="lasche-flaeche-schatten" style="opacity:0.4;filter:url(#inset-shadow);">
+	<path style="fill:#656C6A;" d="M4,3V1H0v42h4v-2c0-4,12-5,12-10c0-4,0-14,0-18C16,8,4,7,4,3z"/>
+</g>
+<path id="lasche-flaeche-schatten-cover" style="fill:#656C6A;" d="M4,44H0V0h4v1c0,0-2,8.429-2,21c0,13.129,2,21,2,21V44z"/>
+<g id="lasche-menu">
+	<g id="lasche-menu-schatten_1_" style="filter:url(#drop-shadow-lasche-menu);">
+		<path style="fill:#F3F2EF;" d="M4,28h7v-2H4V28z M4,23h7v-2H4V23z M4,16v2h7v-2H4z"/>
+	</g>
+	<g id="lasche-menu-bars">
+		<g>
+			<path style="fill:#F3F2EF;" d="M4,28h7v-2H4V28z M4,23h7v-2H4V23z M4,16v2h7v-2H4z"/>
+		</g>
+	</g>
+</g>
+</svg>

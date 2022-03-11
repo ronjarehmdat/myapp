@@ -1,0 +1,230 @@
+//
+// DNA-Notifications
+// --------------------------------------------------
+
+// Alerts, Dialogs, Toasts
+// -------------------------
+
+//== General
+
+// Close-Btn; position top right
+.dna-close,
+.dna-btn-close {
+    position: absolute;
+    top: rem(4px);
+    right: rem(4px);
+    padding-top: rem(3px);
+
+    .icon { //if no svg in html is used
+        @include svg-sli-schliessen;
+    }
+}
+
+//Subtitle on Alerts and Modals
+.dna-alert-subtitle,
+.dna-modal-subtitle {
+    color: $dna-text-A;
+}
+
+//==// ALERT
+// Wrapper where all alerts are placed in
+.dna-alert-wrapper {
+    @include media-breakpoint-up(sm) {
+        position: absolute;
+        right: rem(40px);
+        max-height: 80vh;
+    }
+}
+
+// Single Container for each alert
+.dna-alert-container {
+    width: 100%;
+    @include media-breakpoint-up(sm) {
+        position: relative;
+        width: $dna-alert-width;
+        max-width: calc(100vw - #{rem(60px)});
+    }
+}
+
+// Box with optional icon, text and buttons
+.dna-alert {
+    width: 100%;
+    overflow: hidden;
+    z-index: $dna-zindex-alert;
+    background-color: $dna-alert-bg;
+    border-radius: 0;
+    @include dna-shadow-high;
+
+    @include media-breakpoint-up(sm) {
+        border-bottom-left-radius: $alert-border-radius;
+        border-bottom-right-radius: $alert-border-radius;
+    }
+}
+
+.dna-alert-title {
+    margin-top: rem(3px);
+}
+
+//== Alert-Bar
+// line below the header for visual reinforcement
+.dna-alert-bar {
+    position: absolute;
+    top: -$dna-alert-bar-height;
+    height: $dna-alert-bar-height;
+    width: 100vw;
+    z-index: ($zindex-sticky + 1);
+    @include media-breakpoint-up(sm) {
+        right: rem(-4px);
+    }
+}
+
+.dna-alert-footer {
+    margin-top: $dna-spacer-2x;
+}
+
+// Severity Icons
+
+// Position Severity-Icon
+.dna-alert-icon {
+    // Default: don't display icon
+    display: none;
+    // Position Severity-Icon
+    margin: rem(-2px) $dna-spacer-1hx 0 rem(-2px);
+}
+
+//== Severity
+
+// display, when severity-class present
+.dna-alert-error,
+.dna-alert-warning,
+.dna-alert-information,
+.dna-alert-success {
+    .dna-alert-icon,
+    .dna-alert-bar {
+        display: block;
+    }
+}
+
+//icons
+.dna-alert-error .dna-alert-icon .icon {
+    @include svg-fi-fehler-32();
+}
+
+.dna-alert-warning .dna-alert-icon .icon {
+    @include svg-fi-warnung-32();
+}
+
+.dna-alert-information .dna-alert-icon .icon {
+    @include svg-fi-information-32();
+}
+
+.dna-alert-success .dna-alert-icon .icon {
+    @include svg-fi-ok-32();
+}
+
+//border-colors
+.dna-alert-bar {
+    &.dna-alert-error {
+        background: $dna-state-danger-border;
+    }
+
+    &.dna-alert-warning {
+        background: $dna-state-warning-border;
+    }
+
+    &.dna-alert-information {
+        background: $dna-state-info-border;
+    }
+
+    &.dna-alert-success {
+        background: $dna-state-success-border;
+    }
+}
+
+// Multiple Alerts
+datev-notification + datev-notification {
+    // Only the first gets the alert-bar
+    // remove it from all following
+    .dna-alert-bar {
+        display: none;
+    }
+
+    //Overlap alerts to hide rounded corners of alert above
+    .dna-alert {
+        margin-top: rem(-3px);
+        border-top: $dna-border-width-base solid $dna-border-lightest;
+    }
+
+}
+
+//==// MODAL
+//Bootstraps Modal CSS
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+.dna-modal-container {
+    .modal-backdrop.fade {
+        opacity: $modal-backdrop-opacity;
+    }
+}
+
+.dna-modal {
+    display: block;
+
+    .modal-dialog {
+        top: rem(54px); //ansonsten rutscht auf kleinen Bildschirmen der Dialog oben raus
+        @include media-breakpoint-up(sm) {
+            top: 25%;
+            margin: rem(40px) auto;
+        }
+    }
+
+    .modal-content {
+        @include dna-shadow-high;
+    }
+
+    .modal-header {
+        display: block;
+
+        h2 {
+            margin: 0;
+        }
+
+        .dna-modal-subtitle {
+            margin: rem(10px) 0 0;
+        }
+    }
+
+    .dna-btn-help {
+        order: -1;
+        margin-left: 0;
+        margin-right: auto;
+    }
+}
+
+//==// TOASTS
+
+.dna-toast-container {
+    position: fixed;
+    top: ($dna-header-extended-height + rem(10px));
+    width: 100%;
+    text-align: center;
+}
+
+.dna-toast {
+    //layout
+    display: inline-block;
+    margin: rem(10px);
+    padding: rem(12px);
+    min-width: rem(80px);
+    max-width: rem(300px);
+    z-index: $zindex-popover;
+
+    //style
+    background: $dna-toast-bg;
+    border-radius: $border-radius-sm;
+    color: $dna-text-color-dark-bg;
+
+}

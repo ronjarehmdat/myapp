@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="fi-kalender-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<rect id="fi-kalender-16-schatten" x="2" y="2" style="fill:#555B5D;fill-opacity:0.2;" width="14" height="14"/>
+<rect id="fi-kalender-16-kontur-blatt" x="1" y="5" style="fill:#555B5D;fill-opacity:0.9;" width="14" height="10"/>
+<linearGradient id="fi-kalender-16-farbe-blatt_1_" gradientUnits="userSpaceOnUse" x1="-1.7929" y1="3.8461" x2="13.4324" y2="12.6364">
+	<stop  offset="0.0035" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.9965" style="stop-color:#E4E3E2"/>
+</linearGradient>
+<rect id="fi-kalender-16-farbe-blatt" x="2" y="5" style="fill:url(#fi-kalender-16-farbe-blatt_1_);" width="12" height="9"/>
+<rect id="fi-kalender-16-kontur-blockrand" x="1" y="1" style="fill:#2E4557;fill-opacity:0.9;" width="14" height="4"/>
+<rect id="fi-kalender-16-linie" x="2" y="4" style="fill:#4B6D8B;" width="12" height="1"/>
+<linearGradient id="fi-kalender-16-farbe-blockrand_1_" gradientUnits="userSpaceOnUse" x1="2" y1="3" x2="14" y2="3">
+	<stop  offset="0" style="stop-color:#9FD5F0"/>
+	<stop  offset="1" style="stop-color:#7DB5D3"/>
+</linearGradient>
+<rect id="fi-kalender-16-farbe-blockrand" x="2" y="2" style="fill:url(#fi-kalender-16-farbe-blockrand_1_);fill-opacity:0.9;" width="12" height="2"/>
+<path id="fi-kalender-16-zahl-1" style="fill:#414141;" d="M7,13H6V8C5.391,8.656,3.781,8.994,3.781,8.994V7.889
+	C4.342,7.65,5.542,7.583,6,6h1V13z"/>
+<path id="fi-kalender-16-zahl-7" style="fill:#414141;" d="M8,7V6h5v1c-2.25,1.719-3,4.696-3,6H9c0-2.094,1.063-4.521,2.542-6H8z"/>
+</svg>

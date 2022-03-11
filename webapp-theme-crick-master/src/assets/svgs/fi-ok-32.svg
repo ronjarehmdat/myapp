@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="fi-ok-32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<filter  id="drop-shadow1">
+	<feGaussianBlur  in="SourceAlpha" stdDeviation="1"></feGaussianBlur>
+	<feOffset  dx="1" dy="2" result="offsetblur"></feOffset>
+	<feFlood  flood-color="#555B5D"></feFlood>
+	<feComposite  in2="offsetblur" operator="in"></feComposite>
+	<feComponentTransfer>
+		<feFuncA  slope="0.5" type="linear"></feFuncA>
+		<!--            slope is the opacity of the shadow            -->
+	</feComponentTransfer>
+</filter>
+<g id="fi-ok-32-schatten" filter="url(#drop-shadow1)">
+	<path fill="#FFFFFF" d="M27.354,4L15.27,27.273c-0.057,0.11-0.2,0.142-0.299,0.067L4,18.975v-2.107l9.554,6.369
+		c0.142,0.095,0.335,0.052,0.423-0.094L25.564,4H27.354"/>
+</g>
+<path id="fi-ok-32-kontur" fill="#22421A" fill-opacity="0.9" d="M3,15v4.471l12.027,9.169c0.247,0.188,0.604,0.108,0.747-0.167
+	L29,3h-4L13.608,21.821c-0.059,0.097-0.187,0.126-0.282,0.063L3,15z"/>
+<linearGradient id="fi-ok-32-farbe_1_" gradientUnits="userSpaceOnUse" x1="16.4522" y1="12.9512" x2="24.5398" y2="17.6205">
+	<stop  offset="0" style="stop-color:#BEEB71"/>
+	<stop  offset="0.3091" style="stop-color:#99DC2E"/>
+	<stop  offset="1" style="stop-color:#469900"/>
+</linearGradient>
+<path id="fi-ok-32-farbe" fill="url(#fi-ok-32-farbe_1_)" d="M27.354,4L15.27,27.273c-0.057,0.11-0.2,0.142-0.299,0.067L4,18.975
+	v-2.107l9.554,6.369c0.142,0.095,0.335,0.052,0.423-0.094L25.564,4H27.354"/>
+</svg>

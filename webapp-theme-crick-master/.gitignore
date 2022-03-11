@@ -1,0 +1,12 @@
+﻿# directories #
+###############
+.idea/
+.vscode/
+dist/
+node_modules/
+
+# files #
+###############
+.npm-debug.log
+debug.log
+npm-debug.log.*

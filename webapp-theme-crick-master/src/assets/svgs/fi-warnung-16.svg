@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="fi-warnung-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<path id="fi-warnung-16-schatten" style="fill:#555B5D;fill-opacity:0.2;" d="M3.557,16h10.886c1.156,0,1.908-1.217,1.391-2.251
+	L10.391,2.86c-0.573-1.147-2.209-1.147-2.782,0L2.166,13.749C1.649,14.783,2.401,16,3.557,16z"/>
+<path id="fi-warnung-16-kontur" style="fill:#BA6806;fill-opacity:0.9;" d="M2.557,15h10.886c1.156,0,1.908-1.217,1.391-2.251
+	L9.391,1.86c-0.573-1.147-2.209-1.147-2.782,0L1.166,12.749C0.649,13.783,1.401,15,2.557,15z"/>
+<linearGradient id="fi-warnung-16-farbe_1_" gradientUnits="userSpaceOnUse" x1="4.5872" y1="7.6" x2="12.9139" y2="12.4074">
+	<stop  offset="0" style="stop-color:#F7E8AE"/>
+	<stop  offset="0.1809" style="stop-color:#FFDF17"/>
+	<stop  offset="1" style="stop-color:#FFB717"/>
+</linearGradient>
+<path id="fi-warnung-16-farbe" style="fill:url(#fi-warnung-16-farbe_1_);" d="M8,2c0.103,0,0.358,0.03,0.497,0.307l5.443,10.889
+	c0.125,0.25,0.025,0.461-0.024,0.54S13.722,14,13.443,14H2.557c-0.279,0-0.423-0.184-0.472-0.263s-0.149-0.29-0.024-0.54
+	L7.503,2.307C7.642,2.03,7.897,2,8,2"/>
+<rect id="fi-warnung-16-farbe-strich" x="7" y="5" style="fill:#414141;" width="2" height="5"/>
+<rect id="fi-warnung-16-farbe-punkt" x="7" y="11" style="fill:#414141;" width="2" height="1.5"/>
+</svg>

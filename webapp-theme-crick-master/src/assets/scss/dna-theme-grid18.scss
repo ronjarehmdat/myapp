@@ -1,0 +1,15 @@
+/* Theme for DATEV Design DNA based on Bootstrap 4
+ * (c) DATEV 2019
+ *
+ *  With 18 column layout
+ */
+@import "calc-rem-crick"; // base-font-size 10px
+
+@import "variables";
+
+// Create 18 column layout
+$grid-columns: 18;
+
+//All UI-Components
+@import "dna-theme-components";
+

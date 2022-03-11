@@ -1,0 +1,103 @@
+//
+// Typography
+// --------------------------------------------------
+// Styling für Schriften, Überschriften usw.
+@import "variables.scss";
+
+// Headlines
+//// Headlines in Serifenschrift und Petrol
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    margin-top: 0;
+
+    &.dna-noto {
+        font-family: $dna-font-family-noto-serif;
+    }
+}
+
+h1, .h1 {
+    color: $dna-h1-color;
+
+    &.dna-noto {
+        font-size: $dna-h1-noto-font-size;
+    }
+}
+
+h2, .h2 {
+    color: $dna-h2-color;
+
+    &.dna-noto {
+        font-size: $dna-h2-noto-font-size;
+    }
+}
+
+h3, .h3 {
+    color: $dna-h3-color;
+
+    &.dna-noto {
+        font-size: $dna-h3-noto-font-size;
+    }
+}
+
+//// Headlines in Sans-Serif-Schrift und Semibold/Schwarz
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-family: $font-family-base;
+    font-weight: $dna-headings-small-font-weight;
+    line-height: $dna-headings-small-line-height;
+    margin-top: 0;
+}
+
+h4, .h4 {
+    color: $dna-h4-color;
+
+}
+
+h5, .h5 {
+    color: $dna-h5-color;
+}
+
+h6, .h6 {
+    color: $dna-h6-color;
+    letter-spacing: 0.01em;
+}
+
+// paragraphs, quotes and lists
+p {
+    margin: 0;
+}
+
+// links (in Texten)
+a {
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:link {
+        color: $link-color;
+    }
+
+    &:visited {
+        color: $dna-text-D;
+    }
+
+    &:hover {
+        color: $link-hover-color;
+    }
+
+    &:active {
+        color: $dna-text;
+    }
+
+    &:focus {
+        outline: $dna-focus 1px solid;
+        outline-offset: 0;
+        cursor: pointer;
+    }
+
+    @include transition(all $dna-transition-duration-short);
+}

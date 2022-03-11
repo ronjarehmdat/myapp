@@ -1,0 +1,32 @@
+//
+// Scaffolding
+// --------------------------------------------------
+@import "variables";
+
+//## Seitenstruktur
+
+//Container mit Standard-Abständen
+.dna-container {
+    padding: $dna-page-xs-padding-vertical $dna-page-xs-padding-horizontal;
+
+    @include media-breakpoint-up(sm) {
+        padding: $dna-page-sm-padding-vertical $dna-page-sm-padding-horizontal;
+    }
+    @include media-breakpoint-up(md) {
+        padding: $dna-page-padding-vertical $dna-page-padding-horizontal;
+    }
+}
+
+//## Footer
+// -------------------------
+.dna-footer {
+    position: relative;
+    padding: $dna-footer-padding-vertical $dna-footer-padding-horizontal;
+    color: $dna-text-B;
+
+    //Schattenkante
+    &::before {
+        @include dna-shadow-edge-up($top: 0, $right: $dna-footer-padding, $left: $dna-footer-padding);
+        margin-top: -$dna-shadow-edge-height;
+    }
+}

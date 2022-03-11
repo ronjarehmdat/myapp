@@ -1,0 +1,161 @@
+// *** Dna - Mixins
+// customs and overwrites
+@use "sass:math";
+
+@import "bootstrap/mixins";
+
+// DNA
+
+//##== Positionierung
+//
+//** vertikale Positionierung
+//
+// Positioniert Elemente vertikal zentriert in andern (z.B. Text in Textbox), wenn vertical-align nicht funktioniert
+// $innerHeight ist die Höhe des inneren Elements
+@mixin verticalCenter($innerHeight) {
+    position: absolute;
+    top: 50%;
+    height: $innerHeight;
+    margin-top: math.div(-$innerHeight, 2);
+}
+
+//** Horizontale Positionierung
+//
+// Positioniert Elemente horizontal zentriert in andern (z.B. Text in Textbox)
+// $innerWidth ist die Breite des inneren Elements
+@mixin horizontalCenter($innerWidth) {
+    position: absolute;
+    left: 50%;
+    width: $innerWidth;
+    margin-left: math.div(-$innerWidth, 2);
+}
+
+//** Zentrierung
+// Positioniert Elemente horizontal und vertikal zentriert in andern (z.B. Text in Textbox)
+// $innerHeight ist die Höhe und $innerWidth ist die Breite des inneren Elements
+@mixin center($innerWidth, $innerHeight) {
+    position: absolute;
+    height: $innerHeight;
+    width: $innerWidth;
+    top: 50%;
+    left: 50%;
+    margin-top: math.div(-$innerHeight, 2);
+    margin-left: math.div(-$innerWidth, 2);
+}
+
+//** Mixin disabled Icon-Style
+@mixin icon-disabled() {
+    opacity: .4;
+    filter: grayscale(100%) brightness(90%);
+}
+
+//** Mixin Box-Shadow
+// Schattenrahmen für Panels, Grid etc.
+@mixin dna-box-shadow() {
+    box-shadow: rem(1px) rem(1px) rem(8px) $dna-shadow; // 0 .2rem 1rem $dna-shadow-dark; // .1rem .1rem .8rem $dna-shadow;
+}
+
+@mixin dna-shadow-light() {
+    box-shadow: 0 rem(1px) rem(8px) $dna-shadow;
+}
+
+@mixin dna-shadow-dark() {
+    box-shadow: 0 rem(1px) rem(8px) $dna-shadow-darkest;
+}
+
+@mixin dna-shadow-high() {
+    box-shadow: 0 rem(2px) rem(7px) $dna-shadow-dark;
+}
+
+@mixin dna-shadow-high-dark() {
+    box-shadow: 0 rem(2px) rem(7px) $dna-shadow-darkest;
+}
+
+@mixin dna-shadow-sharp() {
+    box-shadow: 0 rem(1px) rem(5px) rem(1px) $dna-shadow-dark;
+}
+
+//** Mixin "Schattenkante"
+// Shadow for header, footer, table body, etc.
+// apply on ::before or ::after-elements
+// make sure to apply a position-property to the parent!
+
+// Shadow at the bottom of a body (shadow points down)
+@mixin dna-shadow-edge-bottom($right, $left) {
+    content: "";
+    font-size: 0;
+    display: block;
+    position: absolute;
+    height: $dna-shadow-edge-height;
+    background: url('#{$dna-assets-path}/images/schattenkante.png') no-repeat;
+    background-size: 100% $dna-shadow-edge-height;
+    bottom: -$dna-shadow-edge-height;
+    left: $left;
+    right: $right;
+}
+/*deprecated*/
+// Shadow above a body (shadow points down)
+@mixin dna-shadow-edge-down($top, $right, $left) {
+    content: "";
+    font-size: 0;
+    display: block;
+    position: absolute;
+    height: $dna-shadow-edge-height;
+    background: url('#{$dna-assets-path}/images/schattenkante.png') no-repeat;
+    background-size: 100% $dna-shadow-edge-height;
+    z-index: 9;
+    top: $top;
+    left: $left;
+    right: $right;
+}
+
+
+// Shadow below a body (shadow points up) e.g. footer
+@mixin dna-shadow-edge-up($top, $right, $left) {
+    @include dna-shadow-edge-down($top, $right, $left);
+    transform: rotate(180deg);
+}
+
+//==  Prominent label for interactive controls e.g. Button/Link/...
+@mixin dna-label-interactive($color: $dna-btn-color) {
+    text-shadow: 0 rem(1px) 0 rgba($dna-weiss, math.div(20%, 100.0%));
+    font-weight: $btn-font-weight;
+    color: $color;
+}
+
+// Changing background on interactive, light elements, e.g. button light
+@mixin dna-bg-interactive() {
+    &:hover {
+        background-color: $dna-hover-bg;
+    }
+    &:active {
+        background-color: $dna-pressed-bg;
+    }
+}
+
+//== Overwrites
+
+//** grid-mixin
+
+// Creates a wrapper for a series of columns
+//
+// Fix, because Boostrap doesn't cope with rem-units here --> removed (only) ceil/floor on calculation
+@mixin make-row($gutter: $grid-gutter-width) {
+    margin-left: math.div($gutter, -2);
+    margin-right: math.div($gutter, -2);
+    @extend .clearfix;
+}
+
+// Scrollable Containers Mixin
+@mixin scrollable-container($vertical-space: $specific-vertical-space) {
+    height: calc(100vh - #{$vertical-space});
+    overflow-y: auto;
+    clear: both;
+}
+
+@mixin user-select($user-select) {
+    -moz-user-select: $user-select;
+    -ms-user-select: $user-select;
+    -webkit-user-select: $user-select;
+    user-select: $user-select;
+}

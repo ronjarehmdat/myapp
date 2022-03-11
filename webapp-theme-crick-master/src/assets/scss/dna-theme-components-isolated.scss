@@ -1,0 +1,81 @@
+/* Theme für DATEV Design DNA based on Bootstrap 4
+ * (c) DATEV 2019
+ */
+
+// ## ohne Variablen
+// Kann genutzt werden, um custom builds mit custom variablen zu erstellen
+
+
+//Fonts from Asset-Server
+@import url("https://apps.datev.de/assets/datev/fonts/1.1.0/fonts.css");
+
+@import "dna-mixins";
+// Icons
+@import "../sprites/dna-theme-sprite.symbol.scss";
+// Bootstrap
+.genepool {
+    @import "bootstrap/bootstrap.scss";
+
+    //## Page Setup
+    //Grundsätzlicher Aufbau der Seiten
+    @import "dna-html-isolated";
+
+    @import "bootstrap/isolated-root.scss";
+}
+
+.genepool {
+    //## Page Setup
+    //Grundsätzliche Einstellungen
+    @import "dna-scaffolding";
+    // Schriftarten etc.
+    @import "dna-typography";
+    // Basics für Icons
+    @import "dna-icons";
+    // Hilfsklassen für das Layout
+    @import "dna-layout";
+
+    //## Page Basics
+    // klappbare, seitliche Navigation
+    @import "dna-sidebar";
+    // Header der Seite
+    @import "dna-header";
+    // Layout-Grid
+    @import "dna-grid"; // Hilfsklassen für das Layout-Grid
+
+
+    //## Components (A-Z)
+    // Breadcrumb-Styles
+    @import "dna-breadcrumb";
+    // Buttons (Standard, Primary, Light,...)
+    @import "dna-button";
+    // Collapsible Panel
+    @import "dna-collapsible";
+    // Datepicker-Styles
+    @import "dna-datepicker";
+    // Dropdown-Button and Menus for all occasions
+    @import "dna-dropdown";
+    // Textbox, Checkbox, Select etc.
+    @import "dna-form";
+    // Gallery
+    @import "dna-gallery";
+    // Lists
+    @import "dna-lists";
+    // Ladeanimation
+    @import "dna-load";
+    // Dialoge, Alerts, etc.
+    @import "dna-notification";
+    // Startseitenkachel, Cockpitkachel und Formularcontainer
+    @import "dna-card";
+    // Infofähnchen
+    @import "dna-popovers";
+    // PDF-Viewer
+    @import "dna-pdfviewer";
+    // Tabelle bzw. Data-"Grid"
+    @import "dna-table";
+    // Tag-input
+    @import "dna-tagging";
+    // Tree
+    @import "dna-tree";
+    // Treestate Checkbox
+    @import "dna-tristatecheckbox";
+}

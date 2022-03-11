@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="fi-fehler-16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<circle id="fi-fehler-16-schatten" style="fill:#555B5D;fill-opacity:0.2;" cx="9" cy="9" r="7"/>
+<circle id="fi-fehler-16-kontur" style="fill:#78000B;fill-opacity:0.9;" cx="8" cy="8" r="7"/>
+<linearGradient id="fi-fehler-16-farbe_1_" gradientUnits="userSpaceOnUse" x1="1.0452" y1="3.9846" x2="13.7339" y2="11.3104">
+	<stop  offset="0" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.1019" style="stop-color:#FC9DA8"/>
+	<stop  offset="0.2553" style="stop-color:#F70E27"/>
+	<stop  offset="1" style="stop-color:#C10014"/>
+</linearGradient>
+<circle id="fi-fehler-16-farbe" style="fill:url(#fi-fehler-16-farbe_1_);" cx="8" cy="8" r="6"/>
+<rect id="fi-fehler-16-schatten-strich" x="8" y="4" style="fill:#414141;fill-opacity:0.3;" width="2" height="6"/>
+<rect id="fi-fehler-16-schatten-punkt" x="8" y="11.5" style="fill:#414141;fill-opacity:0.3;" width="2" height="1.5"/>
+<rect id="fi-fehler-16-farbe-strich" x="7" y="3" style="fill:#FFFFFF;" width="2" height="6"/>
+<rect id="fi-fehler-16-farbe-punkt" x="7" y="10.5" style="fill:#FFFFFF;" width="2" height="1.5"/>
+</svg>

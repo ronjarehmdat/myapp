@@ -1,0 +1,48 @@
+/* Tree Styles */
+@use "sass:math";
+
+@import "variables.scss";
+
+.dna-tree {
+    width: 100%;
+    overflow: hidden;
+    padding: rem(4px);
+
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        a {
+            padding: rem(8px);
+            display: block;
+            text-decoration: none;
+            color: $dna-weiss;
+            text-shadow: 0 rem(1px) rem(2px) rgba($dna-shadow, math.div(80%, 100.0%));
+
+            &:hover {
+                text-decoration: none;
+                color: $dna-weiss;
+                background: rgba(black, math.div(10%, 100.0%));
+            }
+
+            &:active {
+                background: rgba(black, math.div(15%, 100.0%));
+                text-decoration: none;
+            }
+
+            &:focus {
+                outline-width: rem(1px);
+                text-decoration: none;
+            }
+
+            &:visited {
+                color: $dna-weiss;
+            }
+        }
+    }
+}

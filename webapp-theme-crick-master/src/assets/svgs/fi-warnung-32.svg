@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="fi-warnung-32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<filter  id="drop-shadow1">
+	<feGaussianBlur  in="SourceAlpha" stdDeviation="1"></feGaussianBlur>
+	<feOffset  dx="1" dy="2" result="offsetblur"></feOffset>
+	<feFlood  flood-color="#555B5D"></feFlood>
+	<feComposite  in2="offsetblur" operator="in"></feComposite>
+	<feComponentTransfer>
+		<feFuncA  slope="0.5" type="linear"></feFuncA>
+		<!--            slope is the opacity of the shadow            -->
+	</feComponentTransfer>
+</filter>
+<path id="fi-warnung-32-schatten" style="fill:#FFFFFF;filter:url(#drop-shadow1);" d="M16,3c0.824,0,1.536,0.44,1.904,1.177
+	l10.867,21.742c0.332,0.665,0.297,1.439-0.093,2.071C28.287,28.623,27.61,29,26.867,29H5.133c-0.743,0-1.42-0.377-1.811-1.01
+	c-0.391-0.632-0.426-1.406-0.093-2.071L14.096,4.177C14.464,3.44,15.176,3,16,3"/>
+<path id="fi-warnung-32-kontur" style="fill:#D87305;fill-opacity:0.9;" d="M5.133,30h21.734c2.326,0,3.839-2.447,2.799-4.528
+	L18.799,3.73c-1.153-2.307-4.445-2.307-5.598,0L2.334,25.472C1.294,27.553,2.807,30,5.133,30z"/>
+<linearGradient id="fi-warnung-32-farbe_1_" gradientUnits="userSpaceOnUse" x1="8.8395" y1="15" x2="22.475" y2="22.8725">
+	<stop  offset="0" style="stop-color:#F7E8AE"/>
+	<stop  offset="0.1809" style="stop-color:#FFDF17"/>
+	<stop  offset="1" style="stop-color:#FFB717"/>
+</linearGradient>
+<path id="fi-warnung-32-farbe" style="fill:url(#fi-warnung-32-farbe_1_);" d="M16,3c0.824,0,1.536,0.44,1.904,1.177l10.867,21.742
+	c0.332,0.665,0.297,1.439-0.093,2.071C28.287,28.623,27.61,29,26.867,29H5.133c-0.743,0-1.42-0.377-1.811-1.01
+	c-0.391-0.632-0.426-1.406-0.093-2.071L14.096,4.177C14.464,3.44,15.176,3,16,3"/>
+<rect id="fi-warnung-32-farbe-strich" x="15" y="8" style="fill:#414141;" width="3" height="13"/>
+<rect id="fi-warnung-32-farbe-punkt" x="15" y="23" style="fill:#414141;" width="3" height="3"/>
+</svg>

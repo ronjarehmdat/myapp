@@ -1,0 +1,53 @@
+#viewerProgressBar {
+    position: relative;
+    margin-top: rem(-6px);
+    height: rem(6px);
+    background-color: transparent;
+    border-bottom: 0px solid transparent;
+
+    &.hidden {
+        display: block !important; /* override .hidden in bootstrap/utilities.scss */
+        visibility: hidden;
+    }
+
+    .progress {
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: transparent;
+        overflow: hidden;
+        transition: width 200ms;
+
+        &.indeterminate {
+            background-color: $dna-mittelgruen;
+            transition: none;
+        }
+    }
+}
+
+@keyframes progressIndeterminate {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+#viewerProgressBar .indeterminate .glimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: rem(50px);
+
+    background-image: linear-gradient(to right, $dna-mittelgruen 0%, #fff 50%, $dna-mittelgruen 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    animation: progressIndeterminate 2s linear infinite;
+}

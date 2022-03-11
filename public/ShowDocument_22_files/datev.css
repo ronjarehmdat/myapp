@@ -1,0 +1,35 @@
+/*
+new DATEV Bar
+*/
+
+div#header.navibackground_Arbeitnehmer_datev td.grleiste_datev{
+    background-color: #5EB226;
+}
+
+div#header td.grleiste_datev p {
+    margin-bottom: 0;
+    color: white;
+    font-weight: bold;
+}
+
+#header p {
+    text-align: left;
+    word-break: break-word;
+    font-size: 10pt;
+    margin-top: 2pt;
+    margin-bottom: 2pt;
+}
+
+#header td.grleiste_datev {
+    padding-top: 8pt;
+    padding-bottom: 8pt;
+    padding-left: 10pt;
+    padding-right: 5pt;
+    vertical-align: middle;
+}
+
+div#header table.grleiste_datev {
+    margin-bottom: 20px;
+}
+
+

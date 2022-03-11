@@ -1,0 +1,224 @@
+/* Tagging
+ *
+ */
+@import "variables";
+
+.dna-tagging {
+    min-width: rem(168px);
+    position: relative;
+
+    // TODO Rename to .dna-tagging-control
+    .input-group {
+        min-height: $input-height;
+        height: initial;
+        margin: 0;
+        padding: 0 rem(5px) rem(4px) 0;
+
+        &:hover {
+            cursor: text;
+        }
+    }
+
+    // TODO: Rename to .dna-tagging-input
+    .input-control {
+        outline: none;
+        border: none;
+        height: $dna-tagging-tag-line-height;
+        margin: $dna-tagging-tag-margin;
+
+        /* color for ie fallback */
+        &::-webkit-input-placeholder {
+            font-style: italic;
+            color: $dna-text-color-placeholder;
+        }
+        &:-moz-placeholder {
+            font-style: italic;
+            color: $dna-text-color-placeholder;
+        }
+        &::-moz-placeholder {
+            font-style: italic;
+            color: $dna-text-color-placeholder;
+        }
+        &:-ms-input-placeholder {
+            font-style: italic;
+            color: $dna-text-color-placeholder;
+        }
+    }
+
+    .arrow {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: $input-height;
+        height: $input-height;
+        padding: rem(8px) rem(7px) rem(6px);
+        z-index: 5;
+
+        svg {
+            transition: transform $dna-transition-duration-md;
+            @include center(rem(14px), rem(8px));
+        }
+    }
+
+    &.open {
+        .input-group {
+            // Focus
+            outline: rem(1px) $dna-focus solid;
+            border-bottom-color: $input-focus-border-color;
+
+            .arrow {
+                background: $dna-tagging-bg;
+                box-shadow: rem(-2.5px) rem(2px) rem(5px) $dna-shadow;
+
+                svg {
+                    transform: rotate(-180deg);
+                    transition: transform $dna-transition-duration-md;
+                }
+            }
+        }
+
+        ul {
+            &.items {
+                border-top: 0;
+                border-bottom: 0;
+            }
+        }
+    }
+
+    .dropmenu {
+        width: 100%;
+        padding: 0;
+        margin: rem(1px) 0 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: rem(4px) 0;
+        margin: 0;
+
+        &.items {
+            max-height: $dna-tagging-options-maxheight;
+            overflow: auto;
+            position: relative;
+        }
+
+        li {
+            line-height: rem(26px);
+            padding: 0 rem(5px);
+            color: $dna-text;
+
+            &:focus {
+                border: none;
+                outline: none;
+                background-color: $dna-selected-bg;
+            }
+
+            &:active {
+                background-color: $dna-selected-hover-primary-bg;
+            }
+
+            // highlight for hover and keyboard navigation
+            &:hover,
+            &.selected {
+                background-color: $dna-hover-primary-bg;
+                cursor: pointer;
+            }
+
+            .btn-light {
+                width: 100%;
+                text-align: left;
+
+                //reset btn-styles to fit into list
+                &:hover, &:active {
+                    background-color: transparent;
+                }
+                &:focus, &:focus::after {
+                    outline: none;
+                    border: none;
+                }
+            }
+        }
+    }
+    .list-bottom {
+        border-top: rem(1px) solid $dropdown-divider-bg;
+    }
+}
+
+/************************************/
+/************   TAGS  ***************/
+/************************************/
+
+.dna-tagging {
+    datev-tag-list {
+        datev-tag {
+            display: inline-table;
+            line-height: $dna-tagging-tag-line-height;
+            height: $dna-tagging-tag-line-height;
+            margin: $dna-tagging-tag-margin;
+            padding: 0 0 0 rem(5px);
+            background: $dna-petrol;
+            color: $dna-weiss;
+            word-break: break-all;
+
+            &.selected {
+                outline: rem(2px) solid #0f0f0f;
+            }
+
+            &.shake {
+                animation: shakeAnimation .82s cubic-bezier(.36, .07, .19, .97) both;
+                transform: translate3d(0, 0, 0); // warum translazte3D? Würde es ein normales translate nicht auch tun?
+                transform: rotate(0deg);
+
+                backface-visibility: hidden;
+                perspective: 1000px;
+            }
+
+            @keyframes shakeAnimation {
+
+                10%, 90% {
+                    transform: translate3d(-1px, 0, 0);
+                    transform: rotate($dna-tagging-tag-shake-rotation);
+                }
+                20%, 80% {
+                    transform: translate3d(2px, 0, 0);
+                    transform: rotate(-$dna-tagging-tag-shake-rotation);
+                }
+                30%, 50%, 70% {
+                    transform: translate3d(-4px, 0, 0);
+                    transform: rotate($dna-tagging-tag-shake-rotation);
+                }
+                40%, 60% {
+                    transform: translate3d(4px, 0, 0);
+                    transform: rotate(-$dna-tagging-tag-shake-rotation);
+                }
+            }
+
+            .delete {
+                display: inline-block;
+                margin: 0 rem(3px);
+                vertical-align: text-top;
+                .svg-sli-schliessen-dims {
+                    height: rem(10px);
+                    width: rem(10px);
+                    use.fill-dnaweiss {
+                        fill: $dna-weiss;
+                        svg#sli-schliessen,
+                        svg#sli-schliessen path {
+                            fill: inherit;
+                        }
+                    }
+
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $dna-hover-bg;
+                }
+
+                &:active {
+                    background-color: $dna-pressed-bg;
+                }
+            }
+        }
+    }
+}

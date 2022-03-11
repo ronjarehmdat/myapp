@@ -1,0 +1,232 @@
+//== DNA Datepicker
+//
+@import "variables";
+@import "bootstrap/mixins";
+@import "dna-mixins";
+
+    // Datepicker Popup
+
+    // .bs-datepicker.dna-datepicker
+    .dna-datepicker {
+        font-size: $font-size-base;
+
+        .bs-datepicker-container {
+            padding: 0;
+            background-color: $dna-weiss;
+            @include dna-box-shadow;
+        }
+
+        .bs-datepicker-head {
+            padding: $dna-datepicker-padding $dna-datepicker-padding 0;
+            max-height: rem(40px);
+
+            bs-datepicker-navigation-view {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            button {
+                min-height: $dna-btn-height-base;
+                border-radius: $btn-border-radius;
+
+                //Styles
+                @include dna-label-interactive($color: $dna-mittelgruen-A);
+
+                &:hover {
+                    background-color: $dna-hover-bg;
+                }
+
+                &:active {
+                    background-color: $dna-pressed-bg;
+                }
+
+                &[disabled],
+                &.disabled {
+                    background-color: transparent;
+                    color: $dna-text-disabled-color;
+                    cursor: default;
+
+                    span::after {
+                        @include icon-disabled();
+                    }
+                }
+                // Current Month / year button
+
+                &.current {
+                    font-size: $h4-font-size;
+                    padding: 0 $dna-padding-base-horizontal;
+                }
+
+                //NEXT / PREVIOUS BUTTONS
+                &.next,
+                &.previous {
+                    //width: $dna-btn-height-base;
+
+                    span {
+                        color: transparent;
+                    }
+                }
+
+                &.previous {
+                    margin-right: rem(20px);
+
+                    span::after {
+                        content: "<";
+                        @include svg-sli-pfeil-rechts;
+                        @include center($svg-sli-pfeil-rechts-width, $svg-sli-pfeil-rechts-height);
+                        transform: rotate(180deg);
+                    }
+
+                }
+                &.next {
+                    margin-left: rem(20px);
+
+                    span::after {
+                        content: ">";
+                        @include svg-sli-pfeil-rechts;
+                        @include center($svg-sli-pfeil-rechts-width, $svg-sli-pfeil-rechts-height);
+                    }
+                }
+                // End head buttons
+            }
+            //End head
+        }
+
+        .bs-datepicker-body {
+            border: none;
+            padding: $dna-datepicker-padding;
+            border-radius: 0;
+
+            // weekdays
+            thead th {
+                color: $dna-text-C;
+                font-style: italic;
+                text-align: center;
+                height: $dna-datepicker-cell-height;
+                width: $dna-datepicker-cell-width;
+                border-bottom: rem(1px) solid $dna-mittelgrau;
+            }
+            tbody {
+                // weeknumbers
+                .week {
+                    border-right: rem(1px) solid $dna-mittelgrau;
+                    span {
+                        color: $dna-text-B;
+                        cursor: default;
+                        font-size: rem(11px);
+                    }
+                }
+
+                // days / months / years in table
+                td {
+                    color: $dna-text;
+                    font-weight: $btn-font-weight;
+
+                    span {
+                        font-size: $font-size-base;
+                        border-radius: rem(1px);
+                    }
+
+                    // hover/highlight
+                    &.is-highlighted:not(.disabled):not(.selected) span,
+                    span.is-highlighted:not(.disabled):not(.selected) {
+                        background-color: $dna-hover-primary-bg; //$highlighted;
+                    }
+
+                    span.disabled,
+                    &.disabled span {
+                        color: $dna-text-disabled-color;
+                        background-color: $input-disabled-bg;
+                        cursor: default;
+                    }
+
+                    span.selected,
+                    &.selected span {
+                        color: $dna-text;
+                        background-color: $dna-selected-bg;
+                    }
+
+                    &.active {
+                        background-color: $dna-pressed-primary-bg;
+
+                        &:hover {
+                            background-color: $dna-selected-hover-primary-bg;
+                        }
+                    }
+
+                    .is-other-month {
+                        color: $dna-text-C;
+                        font-weight: normal;
+                        cursor: default;
+                    }
+
+                    &::before,
+                    span::before {
+                        left: rem(-3px);
+                        right: rem(-3px);
+                    }
+
+                    //animations (won't work)
+                    // &,
+                    // span {
+                    //     @include transition(background $dna-transition-duration-short);
+                    // }
+
+                }
+                //End cell
+
+            }
+            //End table-body
+
+            // Day-Layout
+            .days td {
+                padding: rem(2px);
+
+                span {
+                    height: $dna-datepicker-cell-height;
+                    width: $dna-datepicker-cell-width;
+                    line-height: $dna-datepicker-cell-height;
+                }
+
+                //date-range
+                td,
+                span {
+                    &.active:not(.select-start)::before,
+                    &.in-range:not(.select-start)::before {
+                        background: $dna-selected-bg;
+                    }
+                }
+            }
+
+            // Month-Layout
+            .months td {
+                padding: rem(2px);
+
+                span {
+                    height: 100%;
+                    line-height: rem(34px); // place text vertically centered / magic number :(
+                }
+            }
+
+        }
+        //End body
+
+    }
+
+    // Datepicker: Input-Styling
+
+    .dna-datepicker-group {
+        .dna-datepicker-input {
+            padding-right: $dna-btn-img-width-base;
+        }
+        .dna-datepicker-button {
+            position: absolute;
+            right: rem(6px);
+            top: 0;
+
+            .icon {
+                @include svg-fi-kalender-16();
+                @include center($svg-fi-kalender-16-width, $svg-fi-kalender-16-height);
+            }
+        }
+    }

@@ -1,0 +1,55 @@
+.dna-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.dna-gallery-container:focus {
+    outline: none;
+}
+
+.dna-gallery-item {
+    width: rem(145px);
+}
+
+.dna-gallery-img {
+    display: block;
+    margin-right: $dna-spacer-1x;
+    padding: $dna-spacer-hx;
+}
+.card.dna-card-info.dna-gallery-img {
+    margin-bottom: $dna-spacer-1x;
+}
+
+.dna-gallery-img-innerview {
+    display: block;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.dna-gallery-img-frame {
+    height: rem(150px);
+}
+
+.dna-gallery-img-caption {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.dna-gallery-img-center-crop {
+    position: relative;
+    overflow: hidden;
+}
+
+.dna-gallery-img-center-crop img {
+    width: 100%;
+    height: 100%
+}
+
+.dna-gallery-img-center-crop img.dna-gallery-img-center-crop-portrait {
+    width: 100%;
+    height: auto;
+}

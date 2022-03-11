@@ -1,0 +1,67 @@
+$(document).click(function (event) {
+    $res = $(event.target).closest('div#mask');
+    if ($res.length > 0) {
+        $('#unlockbookpop').hide();
+        $('#mask').hide();
+    }
+});
+
+function showUnlockPopup(werkid, booktype) {
+    $.ajax({
+        url: '/Portal/UnlockBookPopup',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ werkid: werkid, booktype: booktype }),
+        success: function (data) {
+            $("#unlockbookpop").html(data);
+            $("#unlockbookpop").show();
+            $("div#mask").show();
+            
+        }
+    });
+}
+
+function EnableFreischaltCodeButton(code) {
+
+    var element = $('#btnFreischaltCode');
+
+    if (code.length == 6)
+        element.removeClass('disabled');
+    else {
+        element.removeClass('disabled');
+        element.addClass('disabled');
+    }
+}
+
+function unlockBook(werkid, booktype) {
+    code = $('#freischaltcodeInput').val();
+    if (code.length == 6) {
+        $.ajax({
+            url: '/Portal/UnlockBook',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ freischaltCode: code, werkid: werkid, booktype: booktype }),
+            success: function (data) {
+                $("#unlockbookpop").html(data);
+            }
+        });
+    }
+}
+
+
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+} 
+
+
+function setFingerprintSession(fpAgent) {
+    fpAgent.get().then(result => {
+        $.ajax({
+            url: '/Portal/SetFingerIDInSession',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ visitorId: result.visitorId })
+        });
+    });
+}

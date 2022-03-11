@@ -1,0 +1,169 @@
+//
+// Popovers - DNA Anpassungen
+// --------------------------------------------------
+@use "sass:math";
+
+@import "variables";
+
+//** Styles for Popover
+.popover {
+    max-height: $dna-popover-max-height;
+    min-width: $dna-popover-min-width;
+    width: rem(250px); //random?
+    padding: 0;
+    border-radius: $popover-border-radius;
+    border: none;
+    @include dna-shadow-high-dark();
+
+    > .arrow {
+        margin: 0;
+    }
+
+    &.bs-popover-top {
+        top: auto;
+        bottom: math.div($svg-fi-fehler-16-height, 2);
+        left: -$dna-message-provider-left;
+        border-bottom-left-radius: 0;
+        border-bottom: $popover-border-width solid $popover-arrow-color;
+
+        > .arrow {
+            left: 0;
+            margin-left: 0;
+
+            &::after {
+                display: none;
+            }
+
+            &::before {
+                border-left-width: 0; //changes shape of arrow
+                border-top: $popover-arrow-width solid $popover-arrow-color;
+                border-right: $popover-arrow-width solid transparent;
+            }
+        }
+    }
+
+    &.bs-popover-bottom {
+        top: $input-height-inner - $dna-message-provider-top;
+        margin-top: 0;
+        left: -$dna-message-provider-left;
+        border-top: $popover-border-width solid $popover-arrow-color;
+        border-top-left-radius: 0;
+
+        > .arrow {
+            &::after {
+                display: none;
+            }
+
+            &::before {
+                border-width: 0 $popover-arrow-width 0 0;
+            }
+        }
+    }
+
+    .popover-content {
+        padding: rem(12px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .dna-popover-content-id {
+        color: $dna-text-B;
+    }
+}
+
+//## Validation-States:
+
+//Fehler
+// 1. Ermögliche z.B. äußeres <div class="has-error"> mit innerem <div class="popover bs-popover-top">.
+// 2. Ermögliche <div class="popover bs-popover-top popover-error" />
+// Beachte:
+// Bei äußerem <div class="has-error"> und innerem <div class="popover-info popover-top popover"> greift
+// der Error-Stil.
+.has-error .popover, // siehe 1.
+.popover-error { // siehe 2.
+    &.bs-popover-top {
+        border-bottom-color: $dna-state-danger-border;
+
+        > .arrow {
+            border-top-color: $dna-state-danger-border;
+
+            &::before {
+                border-top: $popover-arrow-width solid $dna-state-danger-border;
+            }
+        }
+    }
+
+    &.bs-popover-bottom {
+        border-top-color: $dna-state-danger-border;
+
+        > .arrow {
+            border-bottom-color: $dna-state-danger-border;
+
+            &::before {
+                border-bottom: $popover-arrow-width solid $dna-state-danger-border;
+            }
+        }
+    }
+}
+
+//Warnung
+.has-warning .popover,
+.popover-warning {
+    &.bs-popover-top {
+        border-bottom-color: $dna-state-warning-border;
+
+        > .arrow {
+            border-top-color: $dna-state-warning-border;
+
+            &::before {
+                border-top: $popover-arrow-width solid $dna-state-warning-border;
+            }
+        }
+    }
+
+    &.bs-popover-bottom {
+        border-top-color: $dna-state-warning-border;
+
+        > .arrow {
+            border-bottom-color: $dna-state-warning-border;
+
+            &::before {
+                border-bottom: $popover-arrow-width solid $dna-state-warning-border;
+            }
+        }
+    }
+}
+
+//Info
+.has-info .popover,
+.popover-info {
+    &.bs-popover-top {
+        border-bottom-color: $dna-state-info-border;
+
+        > .arrow {
+            border-top-color: $dna-state-info-border;
+
+            &::before {
+                border-top: $popover-arrow-width solid $dna-state-info-border;
+            }
+        }
+    }
+
+    &.bs-popover-bottom {
+        border-top-color: $dna-state-info-border;
+
+        > .arrow {
+            border-bottom-color: $dna-state-info-border;
+
+            &::before {
+                border-bottom: $popover-arrow-width solid $dna-state-info-border;
+            }
+        }
+    }
+}
+
+datev-message-popover {
+    position: relative;
+    display: block;
+    height: 100%;
+}

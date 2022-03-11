@@ -1,0 +1,12 @@
+/* Grid
+ * Additional styles for the layout grid
+ *
+*/
+// Grid-spacer
+// Leerräumen in Layout-Grids in variabler Spaltenbreite, um Zeilenumbrüche in horizontal forms zu ermöglichen. col-*-offset funktioniert dafür leider nicht, da es auch immer am Beginn der neuen Zeile ein Offset setzt.
+// @media-abhängigkeit durch .visible-*-* bzw. .hidden-* Klassen
+
+.dna-grid-spacer {
+    height: $input-height;
+    margin-bottom: $form-group-margin-bottom;
+}

@@ -1,0 +1,13 @@
+//
+// HTML
+// --------------------------------------------------
+@import "variables";
+
+html {
+    font-size: $dna-rem-factor; //10px bei Standardeinstellungen des Browsers; Basis für alle -rem-Angaben.
+}
+
+html,
+body {
+    min-height: 100%;
+}

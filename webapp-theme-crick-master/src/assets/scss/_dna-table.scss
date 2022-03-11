@@ -1,0 +1,116 @@
+/*
+* Styles für Tabellen ("Grid")
+*/
+@import "variables";
+@import "dna-mixins";
+
+//==// Rich Table
+// Tabelle mit Header und Rahmen für Tabellen mit Funktionen wie Sortiertung usw.
+
+.table-striped {
+    > tbody > tr:nth-of-type(odd) {
+        background-color: $table-accent-bg;
+    }
+}
+
+.dna-table {
+    border-radius: $border-radius;
+    border: rem(1px) solid $table-border-color;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 100%;
+    max-width: calc(100% + #{rem(40px)});
+    margin: 0;
+    @include dna-box-shadow;
+    position: relative;
+
+    > thead {
+        border-bottom: rem(1px) solid $dna-border-lighter;
+
+        &::after {
+            @include dna-shadow-edge-down($top: rem(43px), $right: 0, $left: 0);
+        }
+
+        > tr {
+            background-color: $table-head-bg;
+
+            &:hover {
+                background-color: $table-head-bg;
+            }
+
+            > th {
+                text-shadow: 0 rem(1px) 0 rgba(255, 255, 255, 0.6);
+                color: $dna-text-D;
+                font-weight: 500;
+                border-width: 0;
+                padding: $dna-table-head-padding-vertical $table-cell-padding;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                &:first-of-type {
+                    padding-left: $dna-table-cell-padding-outer;
+                }
+
+                &:last-of-type {
+                    padding-right: $dna-table-cell-padding-outer;
+                }
+            }
+
+            > th + th {
+                border-left: rem(1px) solid $dna-border-lighter;
+            }
+        }
+    }
+
+    > tbody {
+        overflow-y: auto;
+        min-height: (3 * rem(28px));
+        margin: 0;
+        position: relative;
+        // Schattenkante
+        /*&::before {
+        @include dna-shadow-edge-down($top: -.0625rem, $right: 0, $left: 0);
+    }*/
+        > tr {
+            cursor: pointer;
+            //gestreifte Tabellenzeilen
+            /*&:nth-of-type(even) {
+                background-color: $table-accent-bg;
+            }*/
+            //Hover-Effekt auf Zeile
+            &:hover {
+                background-color: $table-hover-bg;
+            }
+
+            > td {
+                border-top-width: 0;
+                padding: $table-cell-padding $table-cell-padding;
+
+                &:first-of-type {
+                    padding-left: $dna-table-cell-padding-outer;
+                }
+
+                &:last-of-type {
+                    padding-right: $dna-table-cell-padding-outer;
+                }
+            }
+        }
+    }
+
+    thead, tbody, tr, td, th {
+        display: block;
+    }
+
+    tr::after {
+        content: ' ';
+        display: block;
+        visibility: hidden;
+        clear: both;
+    }
+
+    tbody td, thead th {
+        float: left;
+    }
+}

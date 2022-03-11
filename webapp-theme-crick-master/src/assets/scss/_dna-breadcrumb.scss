@@ -1,0 +1,98 @@
+/* Breadcrumb
+ *
+ * Elemente:
+ ** .dna-breadcrumb - Container (nav)
+ ** .breadcrumb - Leiste mit Einträgen (ol)
+ ** .dna-breadcrumb-label - Label für Screenreader, nicht sichtbar (Accessiblity)
+ ** .dna-breadcrumb-item - Container (li) für links
+ ** <a> - Links mit Verhalten visited/hover/active/focus
+ *
+ */
+
+.dna-breadcrumb {
+
+    .dna-breadcrumb-label {
+        @include sr-only;
+    }
+
+    .breadcrumb {
+        padding: 0;
+        margin: 0;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .dna-breadcrumb-item {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        @include user-select(none);
+
+        & > a,
+        & > span {
+            display: inline-block;
+            padding: $dna-padding-base-vertical $dna-padding-base-horizontal;
+            width: auto;
+            min-width: rem(36px);
+            max-width: 100%;
+            vertical-align: top;
+            line-height: rem(18px);
+            text-decoration: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include dna-label-interactive($color: $dna-breadcrumb-color);
+            @include user-select(text);
+        }
+
+        &::after {
+            padding: 0;
+            @include user-select(none);
+        }
+
+        &:not(:last-child) > a {
+            @include dna-bg-interactive;
+
+            @include media-breakpoint-down(xs) {
+                max-width: rem(200px);
+            }
+        }
+
+        &:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            & > a,
+            & > span {
+                color: $breadcrumb-active-color;
+                cursor: default;
+                outline: none;
+                box-sizing: content-box;
+            }
+        }
+
+        //Add arrow-icon
+        &:not(:last-child)::after {
+            content: "";
+            display: inline-block;
+            margin-top: rem(5px);
+            @include svg-sli-breadcrumb();
+        }
+
+        //Drop-Down-Button
+        .dropdown-toggle {
+            vertical-align: top;
+            margin-left: rem(-8px);
+            margin-right: rem(-2px);
+
+            &::after {
+                display: none;
+            }
+        }
+
+        .dropdown-menu {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "dest": "src/",
+    "mode": {
+        "symbol": {
+            "inline": true,
+            "sprite": "dna-theme-sprite.symbol.svg",
+            "dest": "assets/sprites"
+        },
+        "css": {
+            "sprite": "dna-theme-sprite.symbol.svg",
+            "dest": "assets/sprites",
+            "prefix": "svg-%s",
+            "render": {
+                "scss": {
+                    "dest": "dna-theme-sprite.symbol.scss",
+                    "template": "./sprite-template.scss"
+                }
+            }
+        }
+    }
+}

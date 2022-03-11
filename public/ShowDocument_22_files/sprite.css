@@ -1,0 +1,184 @@
+/* Default Icon CSS*/
+
+.icon,
+.icon-color-hellgrau,
+.icon-color-weiss,
+.icon-color-schwarz,
+.icon-color-recht {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 62.667em 8.667em;
+}
+
+/* Icon Color */
+.icon {
+    font-size: 5px;
+    background-image: url("./image/sprite/sprite.svg");
+}
+
+.icon-color-hellgrau {
+    background-image: url("./image/sprite/sprite-hellgrau.svg");
+}
+
+.icon-color-weiss {
+    background-image: url("./image/sprite/sprite-weiss.svg");
+}
+
+.icon-color-schwarz {
+    background-image: url("./image/sprite/sprite-schwarz.svg");
+}
+
+.icon-color-recht {
+    background-image: url("./image/sprite/sprite-recht.svg");
+}
+
+
+.icon-ausklappen {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: 0 0;
+}
+
+.icon-buch {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -4em 0;
+}
+
+.icon-caret-right-solid {
+    width: 1em;
+    height: 2.67em;
+    background-position: -8em 0;
+}
+
+.icon-check {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -12em 0;
+}
+
+.icon-chevron-right-solid {
+    width: 1.67em;
+    height: 2.67em;
+    background-position: -16em 0;
+}
+
+.icon-facebook {
+    width: 2.33em;
+    height: 2.67em;
+    background-position: -20em 0;
+}
+
+.icon-filter {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -24em 0;
+}
+
+.icon-herzen {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -28em 0;
+}
+
+.icon-home {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -32em 0;
+}
+
+.icon-info {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -36em 0;
+}
+
+.icon-linkedin {
+    width: 2.33em;
+    height: 2.67em;
+    background-position: -40em 0;
+}
+
+.icon-menue {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -44em 0;
+}
+
+.icon-nachricht {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -48em 0;
+}
+
+.icon-nachrichten {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -52em 0;
+}
+
+.icon-rss {
+    width: 2.33em;
+    height: 2.67em;
+    background-position: -56em 0;
+}
+
+.icon-schild {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -60em 0;
+}
+
+.icon-search-solid {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: 0 -4em;
+}
+
+.icon-stern {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -4em -4em;
+}
+
+.icon-sternvoll {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -8em -4em;
+}
+
+.icon-suche {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -12em -4em;
+}
+
+.icon-taschenrechner {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -16em -4em;
+}
+
+.icon-twitter {
+    width: 2.33em;
+    height: 2.67em;
+    background-position: -20em -4em;
+}
+
+.icon-unlock {
+    width: 2.33em;
+    height: 2.67em;
+    background-position: -24em -4em;
+}
+
+.icon-vorwaerts {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -28em -4em;
+}
+
+.icon-zurueck {
+    width: 2.67em;
+    height: 2.67em;
+    background-position: -32em -4em;
+}

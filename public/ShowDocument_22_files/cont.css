@@ -1,0 +1,2052 @@
+/* DIES IST DIE MUSTERDATEI FUER DAS BIT-CSS.
+   Hier sollten die meisten Einstellungen schon mal einerma�en sinnvoll vorbelegt sein, so da� man nur noch anpassen mu�
+   Die Datei wird (sp�ter) auch benutzt wenn der BIT2HTML-Konverter f�r ein Werk noch keine CSS-Datei hat. 
+   Sie sollte wann immer n�tig an neue Gegebenheiten angepasst/verbessert werden. Das bitte 
+   a) Sehr sorgf�ltig machen
+   b) Aussagekr�ftig kommentieren
+   
+   Die Vorlage f�r diese Datei liegt im Dateisystem unter \\nchbweb\inetem\nchbdbat\eMediaContentCenter\Spezifikationen\BIT-Level2-Musterdaten\Praxismuster\Muster_cont.css 
+   und im SourceSafe unter $/Gemeinsame Projekte/BIT-Projekt/BIT2HTML_AllgemeinesCSS/Muster_cont.css
+*/
+
+/* EINSTELLUNGEN F�R Ps */
+
+/* ==================== */
+
+/* DEFAULT-EINSTELLUNG f�r alle Ps */
+
+#articleContent p {
+	margin-top: 2pt;
+	margin-bottom: 2pt;
+	font-size: 10pt;
+}
+
+/* Spezialangabe f�r Seitenumbr�che */
+
+#articleContent p.EL_pagebreak {
+	background-color: #F0F0F0;
+	text-align: center;
+	margin-top: 12pt;
+	margin-bottom: 12pt;
+	/*display: none;*/
+}
+
+/* Ab hier die Ps bitte in der logischen Reihenfolge des Buchs anlegen */
+
+/* ------------------------------------------------------------------- */
+
+#articleContent p.book {
+	text-indent: 9.5pt;
+	font-size: 10pt;
+}
+
+#articleContent p.com {
+	font-size: 10pt;
+	margin-bottom: 1em;
+	/* Debug-Einstellungen  */
+	/*
+    background-color:  #f0f0f0;
+    border-bottom: red 1px solid;
+    border-right: red 1px solid;
+    border-top: red 1px solid;
+    border-left: red 1px solid;
+    */
+}
+
+#articleContent p.com_lit {
+	text-indent: 9pt;
+	font-size: 9pt;
+	margin-top: 4pt;
+	margin-bottom: 2pt;
+}
+
+#articleContent p.com_toc {
+	margin-bottom: 2pt;
+	margin-top: 4pt;
+	font-size: 9pt;
+}
+
+/* Gesetzestext */
+
+#articleContent p.law {
+	text-indent: 9pt;
+	font-size: 9pt;
+	font-weight: bold;
+	margin-bottom: 2pt;
+}
+
+/* Formulare */
+
+#articleContent p.form {
+	margin-left: 20pt;
+	font-size: 9pt;
+}
+
+/* Beispiel */
+
+#articleContent p.example {
+	margin-left: 20pt;
+	/* eingezogen */
+	margin-bottom: 2pt;
+	font-size: 9pt;
+}
+
+/* Eingeschobener Gesetzestext */
+
+#articleContent p.ins_law {
+	font-style: italic;
+}
+
+/* Angeh�ngter Gesetzestext */
+
+#articleContent p.app_law {
+	margin-bottom: 2pt;
+}
+
+/* Titel im angeh�ngten Gesetzestext */
+
+#articleContent p.app_law_title {
+	text-align: center;
+	margin-bottom: 2pt;
+}
+
+/* com-Text in Tabelle */
+
+#articleContent p.com_cals {
+	text-indent: 9.5pt;
+	font-size: 10pt;
+	margin-bottom: 2pt;
+}
+
+/* Sachverzeichnis */
+
+#articleContent p.index1 {
+	text-indent: -15pt;
+	margin-left: 15pt;
+}
+
+#articleContent p.index2 {
+	text-indent: -15pt;
+	margin-left: 15pt;
+}
+
+#articleContent p.index3 {
+	text-indent: -15pt;
+	margin-left: 30pt;
+}
+
+/* EINSTELLUNGEN F�R die �berschriften Hs */
+
+/* ====================================== */
+
+/* Default Einstellung f�r ALLE Hs */
+
+#articleContent h1 {
+	margin-top: 0pt;
+	/* Defaulteinstellung wichtig wegen Mozilla */
+	margin-bottom: 15pt;
+	font-size: 13pt;
+	font-weight: bold;
+	/* �berschriften sind fast immer FETT */
+}
+
+/* Hier die Hs bitte in der logischen Reihenfolge des Buchs anlegen */
+
+#articleContent h1.book_1 {
+	text-align: center;
+}
+
+#articleContent h1.book_2 {
+	text-align: center;
+}
+
+/* Kommentierung */
+
+#articleContent h1.com_1 {
+	text-align: center;
+	font-size: 13pt !important;
+}
+
+#articleContent h1.com_2 {
+	text-align: center;
+	font-size: 12pt !important;
+}
+
+#articleContent h1.com_3 {
+	text-align: center;
+	font-size: 10pt !important;
+}
+
+#articleContent h1.com_4 {
+	text-align: center;
+	font-size: 10pt !important;
+}
+
+#articleContent h1.com_5 {
+	text-align: center;
+	font-size: 12pt !important;
+}
+
+/* Gesetzestext */
+
+#articleContent h1.law_1 {
+	text-align: center;
+	font-size: 15pt !important;
+}
+
+#articleContent h1.law_2 {
+	text-align: center;
+	font-size: 14pt !important;
+}
+
+#articleContent h1.law_3 {
+	text-align: center;
+	font-size: 13pt !important;
+}
+
+#articleContent h1.law_4 {
+	text-align: center;
+	font-size: 12pt !important;
+}
+
+#articleContent h1.law_5 {
+	text-align: center;
+	font-size: 10pt !important;
+}
+
+#articleContent h1.law_6 {
+	text-align: center;
+	font-size: 10pt !important;
+}
+
+#articleContent h1.law_7 {
+	text-align: center;
+	font-size: 10pt !important;
+}
+
+/* Ist normalerweise der Paragraph/Artikel */
+
+#articleContent h1.law_8 {
+	text-align: left;
+	font-size: 10pt !important;
+}
+
+/* Ist normalerweise eine Anlage/Anhang*/
+
+#articleContent h1.law_9 {
+	text-align: left;
+	font-size: 10pt !important;
+}
+
+/* Formular */
+
+#articleContent h1.form_1 {
+	text-align: left;
+	font-size: 12pt !important;
+}
+
+#articleContent h1.form_2 {
+	text-align: left;
+	font-size: 12pt !important;
+}
+
+#articleContent h1.form_3 {
+	text-align: left;
+	font-size: 12pt !important;
+}
+
+/* SH's Second Heading Layer = �berschriften mit angeh�ngtem Text */
+
+/* ============================================================== */
+
+/* Ist meist FETT */
+
+#articleContent span.sh_com_0 {
+	font-weight: bold;
+}
+
+#articleContent span.sh_com_1 {
+	font-weight: bold;
+}
+
+#articleContent span.sh_com_2 {
+	font-weight: bold;
+}
+
+#articleContent span.sh_com_3 {
+	font-weight: bold;
+}
+
+#articleContent span.sh_com_4 {
+	font-weight: bold;
+}
+
+#articleContent span.sh_com_5 {
+	font-weight: bold;
+}
+
+#articleContent span.sh_com_6 {
+	font-weight: bold;
+}
+
+#articleContent span.sh_com_7 {
+	font-weight: bold;
+}
+
+#articleContent span.sh_com_8 {
+	font-weight: bold;
+}
+
+/* EINSTELLUNGEN F�R die Aufz�hlungen ENUMs */
+
+/* ======================================== */
+
+/* Diese BL�CKE vom START bis ENDE mu� man einmal f�r jeden SN anlegen und passend definieren */
+
+/* START AUFZ�HLUNG SN=BOOK */
+
+/* ------------------------ */
+
+/* Diese Angaben beziehen sich auf die ganze ENUM-Zeile */
+
+#articleContent table.enum-book {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+	border-spacing: 0pt;
+	border-collapse: collapse;
+	/* Einschalten f�r DEBUG */
+	/* 
+	background-color: lightgreen; 
+	border-bottom: blue 1px solid;
+    border-right: blue 1px solid;
+    border-top: blue 1px solid;
+    border-left: blue 1px solid;
+    */
+}
+
+/* Breite der ersten Spalte f�r alle x-Werte */
+
+#articleContent td.enum-book_0 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der zweiten Spalte f�r alle x-Werte > 0 */
+
+#articleContent td.enum-book_1 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der dritten Spalte f�r alle x-Werte > 1 */
+
+#articleContent td.enum-book_2 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 2 */
+
+#articleContent td.enum-book_3 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 3 */
+
+#articleContent td.enum-book_4 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* ENDE AUFZ�HLUNG SN=BOOK */
+
+/* START AUFZ�HLUNG SN=EXAMPLE */
+
+/* ----------------------------------------------------- */
+
+/* Diese Angaben beziehen sich auf die ganze ENUM-Zeile */
+
+#articleContent table.enum-example {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+	border-spacing: 0pt;
+	border-collapse: collapse;
+}
+
+#articleContent td.enum-example_0 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* ENDE AUFZ�HLUNG SN=EXAMPLE */
+
+/* START AUFZ�HLUNG SN=COM */
+
+/* ----------------------------------------------------- */
+
+/* Diese Angaben beziehen sich auf die ganze ENUM-Zeile */
+
+#articleContent table.enum-com {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+	border-spacing: 0pt;
+	border-collapse: collapse;
+	/* Einschalten f�r DEBUG */
+	/* 
+	background-color: lightgreen; 
+	border-bottom: blue 1px solid;
+    border-right: blue 1px solid;
+    border-top: blue 1px solid;
+    border-left: blue 1px solid;
+    */
+}
+
+/* Breite der ersten Spalte f�r alle x-Werte */
+
+#articleContent td.enum-com_0 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der zweiten Spalte f�r alle x-Werte > 0 */
+
+#articleContent td.enum-com_1 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der dritten Spalte f�r alle x-Werte > 1 */
+
+#articleContent td.enum-com_2 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 2 */
+
+#articleContent td.enum-com_3 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 3 */
+
+#articleContent td.enum-com_4 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* ENDE AUFZ�HLUNG SN=COM */
+
+/* START AUFZ�HLUNG SN=LAW */
+
+/* ----------------------------------------------------- */
+
+/* Diese Angaben beziehen sich auf die ganze ENUM-Zeile */
+
+#articleContent table.enum-law {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+	font-weight: bold;
+	/* Gesetzestext ist normalerweise fett */
+	border-spacing: 0pt;
+	border-collapse: collapse;
+}
+
+/* Breite der ersten Spalte f�r alle x-Werte */
+
+#articleContent td.enum-law_0 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* Breite der zweiten Spalte f�r alle x-Werte > 0 */
+
+#articleContent td.enum-law_1 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* Breite der dritten Spalte f�r alle x-Werte > 1 */
+
+#articleContent td.enum-law_2 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 2 */
+
+#articleContent td.enum-law_3 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 3 */
+
+#articleContent td.enum-law_4 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* ENDE AUFZ�HLUNG SN=LAW */
+
+/* START AUFZ�HLUNG SN=APP_LAW */
+
+/* ----------------------------------------------------- */
+
+/* Diese Angaben beziehen sich auf die ganze ENUM-Zeile */
+
+#articleContent table.enum-app_law {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+	border-spacing: 0pt;
+	border-collapse: collapse;
+}
+
+/* Breite der ersten Spalte f�r alle x-Werte */
+
+#articleContent td.enum-app_law_0 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* Breite der zweiten Spalte f�r alle x-Werte > 0 */
+
+#articleContent td.enum-app_law_1 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* Breite der dritten Spalte f�r alle x-Werte > 1 */
+
+#articleContent td.enum-app_law_2 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 2 */
+
+#articleContent td.enum-app_law_3 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 3 */
+
+#articleContent td.enum-app_law_4 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+}
+
+/* ENDE AUFZ�HLUNG SN=APP_LAW */
+
+/* START AUFZ�HLUNG SN=INS_LAW */
+
+/* ----------------------------------------------------- */
+
+/* Diese Angaben beziehen sich auf die ganze ENUM-Zeile */
+
+#articleContent table.enum-ins_law {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+	border-spacing: 0pt;
+	border-collapse: collapse;
+	/* Einschalten f�r DEBUG */
+	/* 
+	background-color: lightgreen; 
+	border-bottom: blue 1px solid;
+    border-right: blue 1px solid;
+    border-top: blue 1px solid;
+    border-left: blue 1px solid;
+    */
+}
+
+/* Breite der ersten Spalte f�r alle x-Werte */
+
+#articleContent td.enum-ins_law_0 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der zweiten Spalte f�r alle x-Werte > 0 */
+
+#articleContent td.enum-ins_law_1 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der dritten Spalte f�r alle x-Werte > 1 */
+
+#articleContent td.enum-ins_law_2 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 2 */
+
+#articleContent td.enum-ins_law_3 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 3 */
+
+#articleContent td.enum-ins_law_4 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* ENDE AUFZ�HLUNG SN=INS_LAW */
+
+/* START AUFZ�HLUNG SN=FORM */
+
+/* ----------------------------------------------------- */
+
+/* Diese Angaben beziehen sich auf die ganze ENUM-Zeile */
+
+#articleContent table.enum-form {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+	/* Hier werkspezifische Angaben */
+	font-size: 9pt;
+	margin-left: 20pt;
+	border-spacing: 0pt;
+	border-collapse: collapse;
+	/* Einschalten f�r DEBUG */
+	/* 
+	background-color: lightgreen; 
+	border-bottom: blue 1px solid;
+    border-right: blue 1px solid;
+    border-top: blue 1px solid;
+    border-left: blue 1px solid;
+    */
+}
+
+/* Breite der ersten Spalte f�r alle x-Werte */
+
+#articleContent td.enum-form_0 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der zweiten Spalte f�r alle x-Werte > 0 */
+
+#articleContent td.enum-form_1 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der dritten Spalte f�r alle x-Werte > 1 */
+
+#articleContent td.enum-form_2 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 2 */
+
+#articleContent td.enum-form_3 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 3 */
+
+#articleContent td.enum-form_4 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* ENDE AUFZ�HLUNG SN=FORM */
+
+/* START AUFZ�HLUNG in TABELLE */
+
+/* ----------------------------------------------------- */
+
+/* Diese Angaben beziehen sich auf die ganze ENUM-Zeile */
+
+#articleContent table.enum-TABLE {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+	border-spacing: 0pt;
+	border-collapse: collapse;
+	/* Einschalten f�r DEBUG */
+	/* 
+	background-color: lightgreen; 
+	border-bottom: blue 1px solid;
+    border-right: blue 1px solid;
+    border-top: blue 1px solid;
+    border-left: blue 1px solid;
+    */
+}
+
+/* Breite der ersten Spalte f�r alle x-Werte */
+
+#articleContent td.enum-TABLE_0 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der zweiten Spalte f�r alle x-Werte > 0 */
+
+#articleContent td.enum-TABLE_1 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der dritten Spalte f�r alle x-Werte > 1 */
+
+#articleContent td.enum-TABLE_2 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 2 */
+
+#articleContent td.enum-TABLE_3 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* Breite der vierten Spalte f�r alle x-Werte > 3 */
+
+#articleContent td.enum-TABLE_4 {
+	width: 18px;
+	/* Hier k�nnte man die Breite �ndern */
+	vertical-align: top;
+	text-align: left;
+	padding-right: 5px;
+	/*	
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+*/
+}
+
+/* ENDE AUFZ�HLUNG SN=FORM */
+
+/* ANGABEN F�R XENUM's */
+
+/* =================== */
+
+/* xenums kommen normalerweise nur beim SN=com_toc vor. */
+
+#articleContent table.xenum-com_toc {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+
+#articleContent table.xenum-com_toc-last {
+	margin-bottom: 50pt;
+	/* Nachabstand f�r den XENUM-Block hier Einstellen */
+}
+
+#articleContent p.xenum-com_toc
+/* Hier k�nnen die Zeilenabst�nde f�r das XENUM definiert werden */
+
+	{
+	margin-top: 0pt;
+	margin-bottom: 2pt;
+}
+
+/* Ab hier werden die Breiten f�r die drei Spalten X1, X2 und X3 definiert */
+
+/* ----------------------------------------------------------------------- */
+
+/* F�r x=0 */
+
+#articleContent td.xenum-com_toc_0_x1 {
+	padding-left: 0px;
+	width: 15px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: lightblue;
+	*/
+}
+
+#articleContent td.xenum-com_toc_0_x2 {
+	padding-left: 0px;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: red;
+	*/
+}
+
+#articleContent td.xenum-com_toc_0_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: center;
+	vertical-align: top;
+	font-weight: bold;
+	/*
+	background-color: orange;
+	*/
+}
+
+/* F�r x=1 */
+
+#articleContent td.xenum-com_toc_1_x1 {
+	padding-left: 20px;
+	width: 15px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: lightblue;
+	*/
+}
+
+#articleContent td.xenum-com_toc_1_x2 {
+	padding-left: 0px;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+	/*
+		background-color: lightgreen;
+	*/
+}
+
+#articleContent td.xenum-com_toc_1_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: left;
+	vertical-align: top;
+	/*
+		background-color: orange;
+	*/
+}
+
+/* F�r x=2 */
+
+#articleContent td.xenum-com_toc_2_x1 {
+	padding-left: 38px;
+	width: 15px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: lightblue;
+	*/
+}
+
+#articleContent td.xenum-com_toc_2_x2 {
+	padding-left: 0px;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+	/*
+		background-color: lightgreen;
+	*/
+}
+
+#articleContent td.xenum-com_toc_2_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: orange;
+	*/
+}
+
+/* F�r x=3 */
+
+#articleContent td.xenum-com_toc_3_x1 {
+	width: 75px;
+	text-align: right;
+	vertical-align: top;
+	/*
+		background-color: lightblue;
+	*/
+}
+
+#articleContent td.xenum-com_toc_3_x2 {
+	padding-left: 0px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: lightgreen;
+	*/
+}
+
+#articleContent td.xenum-com_toc_3_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: left;
+	vertical-align: top;
+	/*
+		background-color: orange;
+	*/
+}
+
+/* F�r x=4 */
+
+#articleContent td.xenum-com_toc_4_x1 {
+	padding-left: 75px;
+	width: 20px;
+	text-align: left;
+	vertical-align: top;
+	/*
+		background-color: lightblue;
+	*/
+}
+
+#articleContent td.xenum-com_toc_4_x2 {
+	padding-left: 0px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: lightgreen;
+	*/
+}
+
+#articleContent td.xenum-com_toc_4_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: orange;
+	*/
+}
+
+/* F�r die Kopfzeile des XENUMs */
+
+#articleContent td.xenum-com_toc_head_0_x1 {
+	width: auto;
+	/*
+		background-color: orange;
+	*/
+}
+
+#articleContent td.xenum-com_toc_head_0_x2 {
+	width: auto;
+	/*
+	background-color: orange;
+	*/
+}
+
+#articleContent td.xenum-com_toc_head_0_x3 {
+	width: 50px;
+	/*
+	background-color: orange;
+	*/
+}
+
+/*     FUSSNOTEN         */
+
+/* ===================== */
+
+#articleContent p.p-FOOTNOTE {
+	font-size: 9pt;
+	margin-top: 0pt;
+	margin-bottom: 6pt;
+}
+
+#articleContent td.enum-fnote-com_0 {
+	width: 20px;
+	text-align: right;
+	font-size: 9pt;
+	padding-right: 3px;
+}
+
+#articleContent td.enum-fnote-com_1 {
+	width: 12px;
+	text-align: right;
+	font-size: 9pt;
+	padding-right: 3px;
+}
+
+#articleContent td.enum-fnote-com_2 {
+	width: 20px;
+	text-align: right;
+	font-size: 9pt;
+	padding-right: 3px;
+}
+
+#articleContent td.enum-fnote-com_3 {
+	width: 20px;
+	text-align: right;
+	font-size: 9pt;
+	padding-right: 3px;
+}
+
+#articleContent table.enum-FOOTNOTE {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	width: 100%;
+}
+
+#articleContent table.enum-FOOTNOTE-last {
+	margin-top: 0pt;
+	width: 100%;
+	margin-bottom: 20pt;
+	/* Nachabstand f�r das enum in der Fu�note */
+}
+
+#articleContent p.enum-FOOTNOTE {
+	margin-top: 0pt;
+	margin-bottom: 1pt;
+	font-size: 9pt;
+}
+
+#articleContent td.enum-FOOTNOTE_0 {
+	vertical-align: top;
+	width: 15px;
+	text-align: right;
+	padding-right: 5px;
+	/*
+	background-color: lightblue;
+	*/
+}
+
+#articleContent td.enum-FOOTNOTE_1 {
+	vertical-align: top;
+	width: 15px;
+	text-align: right;
+	padding-right: 5px;
+	/*
+	background-color: lightgreen;
+	*/
+}
+
+#articleContent td.enum-FOOTNOTE_2 {
+	vertical-align: top;
+	width: 15px;
+	text-align: right;
+	padding-right: 5px;
+	/*
+	background-color: orange;
+	*/
+}
+
+#articleContent td.enum-FOOTNOTE_3 {
+	vertical-align: top;
+	width: 15px;
+	text-align: right;
+	padding-right: 5px;
+	/*
+	background-color: red;
+	*/
+}
+
+#articleContent td.enum-FOOTNOTE_4 {
+	vertical-align: top;
+	width: 15px;
+	text-align: right;
+	padding-right: 5px;
+	/*
+	background-color: blue;
+	*/
+}
+
+#articleContent td.enum-FOOTNOTE_text {
+	vertical-align: top;
+}
+
+/* XENUMs in FOOTNOTE */
+
+#articleContent p.fnote-xenum-FOOTNOTE {
+	margin-top: 0pt;
+	margin-bottom: 4pt;
+}
+
+#articleContent td.xenum-FOOTNOTE_0_x1 {
+	padding-left: 0px;
+	width: 15px;
+	text-align: left;
+	vertical-align: top;
+	background-color: lightblue;
+}
+
+#articleContent td.xenum-FOOTNOTE_0_x2 {
+	padding-left: 0px;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+	background-color: lightgreen;
+}
+
+#articleContent td.xenum-FOOTNOTE_0_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: left;
+	vertical-align: top;
+	background-color: orange;
+}
+
+#articleContent td.xenum-FOOTNOTE_1_x1 {
+	padding-left: 20px;
+	width: 15px;
+	text-align: left;
+	vertical-align: top;
+}
+
+#articleContent td.xenum-FOOTNOTE_1_x2 {
+	padding-left: 0px;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+	/*
+		background-color: lightgreen;
+	*/
+}
+
+#articleContent td.xenum-FOOTNOTE_1_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: left;
+	vertical-align: top;
+	background-color: orange;
+}
+
+#articleContent td.xenum-FOOTNOTE_2_x1 {
+	padding-left: 38px;
+	width: 15px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: lightblue;
+	*/
+}
+
+#articleContent td.xenum-FOOTNOTE_2_x2 {
+	padding-left: 0px;
+	width: auto;
+	text-align: left;
+	vertical-align: top;
+	/*
+		background-color: lightgreen;
+	*/
+}
+
+#articleContent td.xenum-FOOTNOTE_2_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: left;
+	vertical-align: top;
+	background-color: orange;
+}
+
+#articleContent td.xenum-FOOTNOTE_3_x1 {
+	/* padding-left: 55; */
+	width: 75px;
+	text-align: right;
+	vertical-align: top;
+	/*
+		background-color: lightblue;
+	*/
+}
+
+#articleContent td.xenum-FOOTNOTE_3_x2 {
+	padding-left: 0px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: lightgreen;
+	*/
+}
+
+#articleContent td.xenum-FOOTNOTE_3_x3 {
+	padding-left: 0px;
+	width: 50px;
+	text-align: left;
+	vertical-align: top;
+	background-color: orange;
+}
+
+#articleContent td.xenum-FOOTNOTE_4_x1 {
+	padding-left: 75px;
+	width: 20px;
+	text-align: left;
+	vertical-align: top;
+	/*
+		background-color: lightblue;
+	*/
+}
+
+#articleContent td.xenum-FOOTNOTE_4_x2 {
+	padding-left: 0px;
+	text-align: left;
+	vertical-align: top;
+	/*
+	background-color: lightgreen;
+	*/
+}
+
+#articleContent td.xenum-FOOTNOTE_4_x3 {
+	padding-left: 0px;
+	width: 0px;
+	text-align: left;
+	vertical-align: top;
+	background-color: orange;
+}
+
+/* CALS-TABELLEN */
+
+/* ============= */
+
+#articleContent table.cals {
+	margin-bottom: 4pt;
+}
+
+#articleContent table.form {
+	/* Einzug f�r Tabellen in Formularen */
+	margin-left: 20pt;
+}
+
+/* Formate f�r normales p in einer Kommentierung in einer CALS-Tabelle */
+
+#articleContent p.com_cals {
+	margin-top: 0pt;
+	margin-bottom: -1pt;
+}
+
+#articleContent p.law_cals {
+	font-size: 9pt;
+	font-weight: bold;
+	margin-bottom: -1pt;
+}
+
+/* CALS-Tabellen in Fu�noten */
+
+#articleContent p.com_fnote_cals {
+	font-size: 9pt;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+	Hier sind die Einstellungen f�r das "Master"-Layout abgelegt. 
+	DIESE EINSTELLUNGEN NICHT �NDERN!!!
+*/
+
+#articleContent table.layout td.layout_td1 {
+	padding-left: 15pt;
+	/*
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+	*/
+}
+
+#articleContent table.layout td.layout_td2 {
+	width: 30px;
+	text-align: right;
+	padding-right: 5pt;
+	padding-top: 1pt;
+	vertical-align: top;
+	/*
+	border-bottom: blue 1px solid;
+    border-right: blue 1px solid;
+    border-top: blue 1px solid;
+    border-left: blue 1px solid;
+    background-color: red;
+    */
+}
+
+#articleContent table.layout td.layout_td3 {
+	width: 20px;
+	text-align: right;
+	vertical-align: top;
+	/*
+    border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+    */
+}
+
+/*  Hier die Formatierungen f�r die html-Randnummer angeben. 
+	Muss nicht ge�ndert werden
+*/
+
+#articleContent p.marg {
+	font-weight: bold;
+	font-size: 10pt;
+	text-align: right;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	margin-right: 5pt;
+	vertical-align: bottom;
+	/*
+	border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+    */
+	height: 20pt;
+	/* Mindestabstand */
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+	Die Stylenames des in-Elements und einige der Direktattribute werden in html mit 
+	Spans ausgeben. Hier sind die entsprechenden css-Einstellungen abgelegt. 
+	DIESE EINSTELLUNGEN NICHT �NDERN!!!
+*/
+
+#articleContent span.bold_on {
+	font-weight: bold;
+}
+
+#articleContent span.bold_off {
+	font-weight: normal;
+}
+
+#articleContent span.italic_on {
+	font-style: italic;
+}
+
+#articleContent span.italic_off {
+	font-style: normal;
+}
+
+#articleContent span.bolditalic_on {
+	font-weight: bold;
+	font-style: italic;
+}
+
+#articleContent span.bolditalic_off {
+	font-weight: normal;
+	font-style: normal;
+}
+
+#articleContent span.bold_on_italic_off {
+	font-weight: bold;
+	font-style: normal;
+}
+
+#articleContent span.bold_off_italic_on {
+	font-weight: normal;
+	font-style: italic;
+}
+
+#articleContent span.up {
+	vertical-align: text-top;
+	/* Sorgt in Verbindung mit dem SUP-Tag f�r eine saubere Hochstellung in ALLEN Browsern, die aber nicht �ber die Oberl�ngen der Schrift rausgeht. */
+	font-size: 80%;
+	/* Zur Vorsicht. Wenn das Hochstellen doch mal nicht klappt, dann ist die Zahl wenigstens klein */
+}
+
+#articleContent span.down {
+	vertical-align: -7%;
+	/*	vertical-align: sub; */
+	font-size: 80%;
+}
+
+#articleContent span.underlined {
+	text-decoration: underline;
+}
+
+#articleContent span.double_underlined {
+	border-bottom-style: double;
+}
+
+#articleContent span.hidden {
+	display: none;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Einstellungen f�r die graue Leiste */
+
+#articleContent table.grleiste {
+	margin-bottom: 16pt;
+	/* Nachabstand f�r die graue Leiste */
+}
+
+#articleContent td.grleiste {
+	padding-top: 8pt;
+	padding-bottom: 8pt;
+	padding-left: 10pt;
+	padding-right: 5pt;
+	vertical-align: middle;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+	 Hier k�nnen Einstellungen gemacht werden, die Einstellungen der cont.css �berschreiben. 	
+	 DIESE EINSTELLUNGEN NICHT �NDERN!!!
+*/
+
+#articleContent body tr td {
+	border: white;
+	font-family: arial, sans-serif;
+	font-size: 100%;
+	/* SEHR WICHTIG, da dies den WERT der cont.css �berschreibt. DIESE EINSTELLUNG NICHT �NDERN */
+}
+
+#articleContent body tr td.akkolade {
+	padding: 0pt !important;
+	/* Spezialfall Akkoladen: ohne Innenabstand wegen der eingebetteten Gif-Bilder */
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Hie die Angaben f�r Small_on und Small_off */
+
+/* ========================================== */
+
+#articleContent div.small_on {
+	margin-top: 6pt;
+	/* Vorabstand vor Kleindruckpassage */
+}
+
+#articleContent div.small_off {
+	margin-bottom: 6pt;
+	/* Nachabstand nach Kleindruckpassagen */
+}
+
+#articleContent table.small {
+	font-size: 85% !important;
+}
+
+#articleContent table.small td {
+	font-size: 85% !important;
+}
+
+#articleContent table.small th {
+	font-size: 85% !important;
+}
+
+#articleContent .small {
+	font-size: 85% !important;
+	/* important mu� hier sein sonst geht es nicht */
+}
+
+/* Angaben f�r Festausschl�sse */
+
+/* =========================== */
+
+#articleContent span.thinsp {
+	font-size: 6pt;
+}
+
+#articleContent span.puncsp {
+	font-size: 7pt;
+}
+
+/* Spezialfall f�r die Darstellung der Checkbox */
+
+/* ============================================ */
+
+#articleContent span.squ {
+	border-bottom: black 1px solid !important;
+	border-right: black 1px solid;
+	border-top: black 1px solid !important;
+	border-left: black 1px solid;
+}
+
+/* fuer Auspunktieren */
+
+/* ================== */
+
+/* auf links stellen */
+
+#articleContent div.dotted1 {
+	float: left;
+}
+
+/* auf rechts stellen */
+
+#articleContent div.dotted2 {
+	float: right;
+}
+
+/* auspunktieren */
+
+#articleContent div.dotted2 div {
+	border-bottom: 1px dotted;
+	width: 100%;
+}
+
+/* SONSTIGES */
+
+/* ========= */
+
+/* wird vom T2-Konverter f�r die Links auf Untergliederungen erzeugt; diese sollten auch zu unserem Layout passen */
+
+#articleContent div.autotoc p {
+	margin-left: 15pt;
+	/* hier wird der Abstand zwischen den Links der Untergliederungen definiert */
+	margin-right: 5pt;
+	margin-top: 5pt;
+}
+
+/*  DIESE EINSTELLUNGEN NICHT �NDERN!!!
+	p.dummy-Element; da in BOI in einer Tabelle immer ein p kommen muss, kommt als Kind-Element von td immer ein p. Manche Browser (Mozilla) nehmen hier einen 
+	Default-Wert f�r die Vor- und Nachabst�nde an. Deshalb werden hier die Vor- und Nachabst�nde auf 0 gesetzt, damit dies richtig angezeigt wird.
+	In dieser Definition darf KEIN Wert f�r text-align angegeben sein, da auch ein Dummy-P-Element f�r die richtige Ausrichtung ausgegeben wird. Diese Einstellung 
+	w�rde dann die im html definierte align-Einstellung �berschreiben.
+*/
+
+#articleContent p.dummy {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+
+#articleContent p1 {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+
+#articleContent p5 {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+
+/* Hier kann die Breite der Randnummern-Spalte eingestellt werden, abh�ngig davon, wieviele Zeichen in der Spalte enthalten sind. */
+
+/* ============================================================================================================================== */
+
+#articleContent table.layout td.RnLength3 {
+	width: 35px;
+}
+
+#articleContent table.layout td.RnLength4 {
+	width: 42px;
+}
+
+#articleContent table.layout td.RnLength5 {
+	width: 50px;
+}
+
+#articleContent table.layout td.RnLength6 {
+	width: 58px;
+}
+
+#articleContent table.layout td.RnLength7 {
+	width: 66px;
+}
+
+#articleContent table.layout td.RnLength8 {
+	width: 74px;
+}
+
+#articleContent table.layout td.RnLength9 {
+	width: 82px;
+}
+
+#articleContent table.layout td.RnLength10 {
+	width: 90px;
+}
+
+/* Erweiterungen f�r tabinfarbeitnehmer. */
+
+/* ============================================================================================================================== */
+
+@font-face {
+  font-family: "Indie Flower";
+  src: url("/fonts/Indie_Flower/IndieFlower-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Shadows Into Light Two";
+  src: url("/fonts/Shadows_Into_Light_Two/ShadowsIntoLightTwo-Regular.ttf") format("truetype");
+}
+
+#articleContent p {
+	text-align: left;
+	word-break: break-word;
+}
+
+#articleContent p.vorwort {
+	font-size: 10pt;
+	margin-bottom: 1em;
+}
+
+#articleContent p.nachwort {
+	font-size: 10pt;
+	margin-bottom: 1em;
+}
+
+#articleContent p.zitat span.bold_on {
+	color: black;
+}
+
+#articleContent p.impressum_hinweis {
+	margin-top: 20pt;
+	margin-bottom: 20pt;
+	color: #8ec63f;
+}
+
+#articleContent p.vorwort_hinweis {
+	color: #004181;
+	font-family: "Indie Flower", cursive;
+}
+
+#articleContent p.zitat {
+	color: grey;
+}
+
+#articleContent p.com_toc {
+	display: none;
+}
+
+#articleContent p.quelle {
+	font-size: smaller;
+}
+
+#articleContent p.link {
+	background-color: #a3d4dc;
+}
+
+#articleContent p.com_hinweis {
+	margin-top: 20pt;
+	color: #007894;
+}
+
+#articleContent h1.book_title_1 {
+	color: #8ec63f;
+}
+
+#articleContent h1.com_2 {
+	color: #009ead;
+}
+
+#articleContent h1.impressum_1 {
+	margin-bottom: 2pt;
+}
+
+#articleContent h1.impressum_1~h1.impressum_1 {
+	margin-top: 20pt;
+	margin-bottom: 2pt;
+}
+
+#articleContent h1.impressum_2 {
+	margin-top: 10pt;
+	font-size: 10pt !important;
+	margin-bottom: 0pt;
+}
+
+#articleContent h1.vorwort_2 {
+	color: #009ead;
+}
+
+#articleContent h1.vorwort_2~h1.vorwort_2 {
+	margin-top: 30pt;
+}
+
+#articleContent h1.nachwort_2 {
+	color: #009ead;
+}
+
+#articleContent h1.nachwort_3 {
+	margin-top: 10pt;
+	font-size: 10pt !important;
+	margin-bottom: 0pt;
+}
+
+#articleContent h1.vorwort_hinweis_1 {
+	margin-top: 20pt;
+	margin-bottom: 0;
+	color: #004181;
+	font-family: cursive;
+}
+
+#articleContent h1.zitat_1 {
+	color: #009ead;
+	margin-bottom: 2pt;
+	font-size: 11pt;
+}
+
+#articleContent div.contentdiv > h1.com_8 ~ h1.com_8 {
+    margin-top: 20pt;
+    margin-bottom: 0;
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+#articleContent h1.com_8 {
+	color: #ffcb65;
+}
+
+#articleContent .link a {
+	word-break: break-word;
+}
+
+#articleContent p.zitat a {
+	color: grey;
+	word-break: break-word;
+	font-size: small;
+}
+
+#articleContent p.fnote {
+    font-size: smaller;
+    border-top: 1pt;
+    border-top-style: solid;
+}
+
+/* Angaben f�r die Formatierung mit Blockstart/Blockend */
+
+/* ==================================================== */
+
+#articleContent fieldset {
+	margin-bottom: 3pt;
+}
+
+#articleContent fieldset.box {
+	border: 2pt solid #a3d4dc;
+	border-radius: 10pt 10pt;
+}
+
+#articleContent fieldset.box h1.com_1 {
+	color: #a3d4dc;
+	margin-bottom: 3pt;
+}
+
+#articleContent fieldset.box .com {
+	font-style: italic;
+}
+
+#articleContent fieldset.wichtig {
+	background-color: #a3d4dc;
+	border-radius: 10pt 10pt;
+}
+
+#articleContent fieldset.wichtig h1.com_1 {
+	color: white;
+	margin-bottom: 3pt;
+}
+
+#articleContent fieldset.vorgehen {
+	background-color: #ffcb65;
+	border-radius: 10pt 10pt;
+}
+
+#articleContent fieldset.vorgehen h1.com_1 {
+	color: white;
+	margin-bottom: 3pt;
+}
+
+#articleContent fieldset.hinweis {
+	background-color: #a3d4dc;
+	border-radius: 10pt 10pt;
+}
+
+#articleContent fieldset.hinweis h1.com_1 {
+	color: white;
+	margin-bottom: 3pt;
+}
+
+#articleContent fieldset.achtung {
+	background-color: #fde0ce;
+	border-radius: 10pt 10pt;
+}
+
+#articleContent fieldset.achtung h1.com_1 {
+	color: #f47a44;
+	margin-bottom: 3pt;
+}
+
+
+#articleContent fieldset.tipp {
+	background-color: #a3d4dc;
+	border-radius: 10pt 10pt;
+}
+
+#articleContent fieldset.tipp h1.com_1 {
+	color: white;
+	margin-bottom: 3pt;
+}
+
+
+#articleContent fieldset.background {
+	background-color: #f47a44;
+	border-radius: 10pt 10pt;
+}
+
+#articleContent fieldset.background .com {
+	color: white;
+}
+
+#articleContent fieldset legend img {
+	height: 50px;
+}
+
+/* DIE FOLGENDEN DIREKTFORMATIERUNGEN WERDEN VOM KONVERTER IMMER WIEDER GESCHRIEBEN. HIER NICHTS �NDERN */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

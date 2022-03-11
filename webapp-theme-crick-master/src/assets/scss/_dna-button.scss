@@ -1,0 +1,364 @@
+// DNA Button
+//
+
+@use "sass:math";
+
+//==  Mixins for Button
+// border for haptic buttons
+@mixin dna-btn-border($btn-border-top: $dna-weiss, $btn-border-bottom: $input-border-color) {
+    &,
+    &:active {
+        border-top: $dna-btn-border-width solid $btn-border-top; //active is declared here to override IEs defaults
+    }
+    border-bottom: $dna-btn-border-width solid $btn-border-bottom;
+    &:hover {
+        box-shadow: 0 rem(1px) 0 0 $btn-border-bottom; //acts as extension for border-bottom, but animates much smoother
+    }
+    &:focus {
+        border-bottom: $dna-btn-border-width solid $dna-focus;
+    }
+}
+
+//outline for focus and/or additional contouring - to be put on :after-element
+@mixin dna-btn-contour($contour-color, $offset: 0) {
+    content: "";
+    font-size: 0;
+    position: absolute;
+    top: ($offset - rem(1px));
+    left: $offset;
+    bottom: $offset;
+    right: $offset;
+    border: rem(1px) solid $contour-color;
+    border-radius: ($btn-border-radius + rem(.5px));
+    transition-property: box-shadow, border;
+    transition-duration: $dna-transition-duration-short;
+}
+
+//Button-Label
+@mixin dna-btn-label() {
+    @include dna-label-interactive($color: $dna-btn-color);
+}
+
+//all Buttons
+.btn {
+    border: none;
+    position: relative;
+    min-height: $dna-btn-height-base;
+    @include dna-btn-label;
+    transition-property: background-image, background-position-y, box-shadow, border;
+    transition-duration: $dna-transition-duration-short;
+
+    //Positionskorrektur des Labels
+    padding-top: ($dna-padding-base-vertical - rem(1px));
+    // padding-bottom: ($dna-padding-base-vertical + rem(1px));
+
+    //Fokus
+    &:focus {
+        outline: none;
+        //Kontur
+        &::after {
+            @include dna-btn-contour($dna-focus, rem(-1px));
+        }
+    }
+
+    img,
+    .icon,
+    .icon-svg {
+        vertical-align: top;
+        margin-right: rem(5px);
+    }
+
+    img,
+    .icon {
+        margin-top: rem(2px);
+        margin-left: rem(-3px);
+    }
+
+    .icon-svg {
+        margin-left: rem(-5px);
+    }
+}
+
+//all haptic buttons
+.btn-default,
+.btn-primary,
+.btn-danger {
+    min-width: rem(80px);
+
+    //Kontur + Schatten
+    &::after {
+        @include dna-btn-contour(transparent, 0);
+        @include dna-shadow-sharp;
+        //IE-only
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            box-shadow: 0 rem(1px) rem(7px) rem(1px) $dna-shadow-darkest;
+        }
+    }
+
+    &:hover {
+        background-position-y: 50%;
+    }
+
+    &:active {
+        background-position-y: 0%;
+
+        &::after {
+            box-shadow: 0 rem(1px) rem(7px) rem(1px) $dna-shadow-dark;
+        }
+    }
+
+    &:focus::after {
+        bottom: rem(-2px);
+    }
+}
+
+// Standardbutton
+.btn-default {
+    &,
+    &:not(:disabled):not(.disabled):active { //overwrite overly specific bootstrap
+        @include dna-btn-border($btn-border-top: $dna-weiss, $btn-border-bottom: $dna-btn-default-border);
+        background-image: linear-gradient($dna-btn-default-active-bg-top, $dna-btn-default-bg-top 66%, $dna-btn-default-bg-bottom);
+    }
+    background-size: rem(10px) 300%;
+    background-position-y: 100%;
+}
+
+// Primary Button
+.btn-primary {
+    &,
+    &:not(:disabled):not(.disabled):active { //overwrite overly specific bootstrap
+        @include dna-btn-border($btn-border-top: $dna-hellgruen-E, $btn-border-bottom: $dna-btn-primary-border);
+        background-image: linear-gradient($dna-btn-primary-active-bg-top, $dna-btn-primary-bg-top 66%, $dna-btn-primary-bg-bottom);
+    }
+    background-size: rem(10px) 300%;
+    background-position-y: 100%;
+}
+
+// Destructive Actions Button
+.btn-danger {
+    &,
+    &:not(:disabled):not(.disabled):active { //overwrite overly specific bootstrap
+        @include dna-btn-border($btn-border-top: #F2BEBB, $btn-border-bottom: $dna-btn-danger-border);
+        background-image: linear-gradient($dna-btn-danger-bg-top, $dna-btn-danger-bg-bottom 33%, $dna-btn-danger-active-bg-bottom);
+        color: $dna-btn-color; //overwrite overly specific bootstrap
+    }
+    background-size: rem(10px) 300%;
+    background-position-y: 0%;
+
+    &:active {
+        border-top-color: #f79999;
+        background-position-y: 100%;
+    }
+    &:focus {
+        border-bottom: rem(1px) solid $dna-btn-danger-border;
+        &:not(:hover) {
+            box-shadow: none; //overwrite overly specific bootstrap
+        }
+        &::after {
+            @include dna-btn-contour($dna-btn-danger-border, rem(-1px)); //green focus doesn't work here
+        }
+    }
+}
+
+//Image-Button
+
+@mixin btn-img {
+    min-width: $dna-btn-img-width-base;
+    width: $dna-btn-img-width-base;
+    padding-left: $dna-btn-img-padding-base-horizontal;
+    padding-right: $dna-btn-img-padding-base-horizontal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    img,
+    .icon,
+    .icon-svg {
+        margin: 0; //reset
+    }
+}
+
+.btn-img {
+    @include btn-img();
+}
+
+// disabled
+.btn {
+    &.disabled,
+    &[disabled] {
+        opacity: 1; //reset bootstrap
+        @include box-shadow(none); //reset bootstrap
+        color: $btn-link-disabled-color;
+
+        // Icon-Style bei disabled Buttons
+        img,
+        .icon {
+            @include icon-disabled();
+        }
+    }
+}
+
+.btn-default,
+.btn-primary,
+.btn-danger {
+    &.disabled,
+    &[disabled] {
+        border-top: rem(1px) solid $dna-weiss;
+        border-bottom: rem(1px) solid $dna-mittelgrau-A;
+        background: #edece8;
+        //Kontur
+        &::after {
+            @include dna-btn-contour(rgba($dna-mittelgrau-C, math.div(25%, 100.0%)), rem(-1px));
+            box-shadow: none;
+        }
+    }
+}
+
+/* Light Button */
+.btn-light {
+    //reset btn-Styles
+    &,
+    &[disabled],
+    &.disabled {
+        border: 0 solid transparent;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+
+        &::after {
+            top: rem(-1px);
+        }
+    }
+
+    &:hover {
+        background-color: $dna-hover-bg;
+    }
+
+    &:active {
+        background-color: $dna-pressed-bg;
+    }
+
+    &[disabled],
+    &.disabled {
+        &:hover,
+        &:active {
+            background-color: transparent;
+        }
+    }
+}
+
+// Medium-sized Button
+//
+// larger than the regular Button
+// adds to all btn classes
+.btn-md {
+    @include button-size($dna-padding-medium-vertical, $dna-padding-medium-horizontal, $dna-font-size-md, $dna-line-height-md, $btn-border-radius);
+    //Positionskorrektur des Labels
+    padding-top: ($dna-padding-medium-vertical - rem(1px));
+    padding-bottom: ($dna-padding-medium-vertical + rem(1px));
+
+}
+
+.btn-lg {
+    @include button-size($dna-padding-large-vertical, $dna-padding-large-horizontal, $font-size-lg, $dna-line-height-lg, $btn-border-radius-lg);
+    //Positionskorrektur des Labels
+    padding-top: ($dna-padding-large-vertical - rem(1px));
+    padding-bottom: ($dna-padding-large-vertical + rem(1px));
+}
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+// Or give extra styling to links
+.btn-link {
+    @include dna-btn-label;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: $dna-padding-borderless-vertical $dna-padding-base-horizontal;
+    height: $dna-btn-height-base;
+    border: 0 solid transparent;
+    background-color: transparent;
+
+    &::after {
+        content: ">";
+        font-size: 0;
+        display: inline-block;
+        vertical-align: text-top;
+        margin: ($dna-padding-borderless-vertical - rem(2px)) 0 0 $dna-padding-base-horizontal; //Abstand und Positionskorrektur
+        // Icon
+        @include svg-sli-pfeil-rechts;
+    }
+
+    &:focus {
+        outline: rem(1px) solid $dna-focus;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background-color: $dna-hover-bg;
+        color: currentColor;
+        text-decoration: none;
+    }
+
+    &:active {
+        background-color: $dna-pressed-bg;
+    }
+
+    &:visited {
+        color: $dna-text-D;
+    }
+
+    &[disabled] {
+        cursor: default;
+        pointer-events: none;
+        color: $btn-link-disabled-color;
+
+        // Arrow-icon appears brighter
+        &::after {
+            opacity: .5;
+            -webkit-filter: grayscale(1) brightness(0.9);
+            filter: grayscale(1) brightness(0.9);
+        }
+    }
+}
+
+// Button bar - Styles a row of buttons
+
+//mixin
+@mixin dna-btn-bar-spacer() {
+    button + button,
+    button + datev-dropdown-button,
+    datev-dropdown-button + button {
+        margin-left: $dna-spacer-1hx;
+    }
+}
+
+.btn-bar {
+    text-align: right;
+    @include dna-btn-bar-spacer();
+}
+
+.btn-bar-left {
+    text-align: left;
+    @include dna-btn-bar-spacer();
+}
+
+// Layout-Helper
+
+// Standard-Button "Hilfe"
+.dna-btn-help {
+    @include btn-img();
+    color: transparent;
+    text-shadow: none;
+
+    &::before {
+        @include svg-fi-hilfe-20();
+        display: inline-block;
+        content: "";
+    }
+}

@@ -1,0 +1,49 @@
+.form-check-input-tristate[aria-checked="true"]::before {
+    @include svg-sli-checkmark;
+}
+
+.form-check-input-tristate[aria-checked="mixed"]::before {
+    @include svg-fi-minus-16;
+}
+
+.form-check-tristate .form-check-input-tristate::before {
+    content: "";
+    box-sizing: content-box;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    width: $dna-checkmark-size;
+    height: $dna-checkmark-size;
+    background-color: $input-bg;
+    border: rem(1px) solid $dna-border-lightest;
+
+    display: inline-flex;
+
+    margin: rem(1px) rem(6px) rem(1px) rem(4px);
+    border-bottom-color: $dna-border-dark;
+    border-radius: rem(4px);
+    background-clip: content-box;
+}
+
+.form-check-tristate {
+    display: -webkit-box;
+    display: flex;
+    min-height: rem(28px);
+    margin: 0;
+    color: #0F0F0F;
+    outline: 0 solid $dna-focus;
+    padding: rem(4px) rem(8px) rem(4px) 0;
+    -webkit-transition: all ease-in-out 200ms;
+    transition: all ease-in-out 200ms;
+}
+
+.form-check-tristate:hover {
+    background-color: $dna-hover-bg;
+}
+
+.form-check-tristate:active {
+    background-color: $dna-pressed-bg;
+}
+
+.form-check-tristate:focus {
+    outline: rem(1px) solid $dna-focus;
+}

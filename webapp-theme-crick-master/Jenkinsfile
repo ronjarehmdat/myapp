@@ -1,0 +1,165 @@
+import groovy.transform.Field
+
+@Field final String ORG_NAME = 'WebAppCommunity'
+
+@Field final String TIMEOUT_UNIT = 'HOURS'
+@Field final int TIMEOUT_VALUE = 1
+@Field final String MIRROR_NAME = 'npm-mirror'
+
+properties([
+    [ $class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '10'] ], //Alte Build wegwerfen - maximal 10 aufbewahren
+    [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://git.zd.datev.de/webappcommunity/frontend/webapp-theme-crick'],
+    [$class: 'JobRestrictionProperty'], // no concurrent builds
+    gitLabConnection('git.zd.datev.de')
+])
+
+def _stages = [
+    // do not add "prepare pipeline" stage! that is a fix not a stage that gitlab should know about
+    build: 'npm build',
+    // codeQuality: 'code quality',
+    // qualityGate: 'quality gate',
+    npmPublish: 'npm publish'
+]
+
+stage('prepare pipeline') {
+    //=======================================================================================
+    // prepare pipeline stage = fix for "Failed to update Gitlab commit status for project"
+    // yes this fixes a problem regarding a "bad request" caused by gitlabBuilds()
+    //=======================================================================================
+    node('Linux') {
+        deleteDir()
+        checkout scm
+        stash name: 'repo', useDefaultExcludes: false, includes: '**, .git'
+    }
+}
+
+//****************************//
+//******** BUILD ************//
+//**************************//
+gitlabBuilds(builds: _stages.collect { return it.value }) {
+    stage (_stages.build) {
+        node ('Linux') {
+            gitlabCommitStatus(_stages.build) {
+                // clean workspace
+                deleteDir()
+
+                // checkout sources
+                checkout scm
+
+                def nodejs = tool 'nodejs'
+
+                def branchName = getBranchName()
+                currentBuild.displayName = "#${BUILD_NUMBER} - branch ${branchName}"
+
+                withEnv(["PATH+NODEJS=${nodejs}/bin"]) {
+
+                    configFileProvider([configFile(fileId: MIRROR_NAME, targetLocation: '.npmrc')]) {
+                        sh 'npm install'
+                        sh 'npm run build'
+                    }
+
+                    // remember sources including .git for later re-use
+                    stash name: 'workspace_npm-build-webapp-theme-crick', useDefaultExcludes: false
+                }
+            }
+        }
+    }
+
+    //***************************//
+    //******* CODE QUALITY *****//
+    //*************************//
+    // stage (_stages.codeQuality) {
+    //     node ('Linux') {
+    //         gitlabCommitStatus(_stages.codeQuality) {
+    //             killZombies()
+    //             deleteDir()
+
+    //             unstash 'workspace_npm-build-webapp-theme-crick'
+
+    //             def branchName = getBranchName()
+    //             def nodejs = tool 'nodejs-v8'
+
+    //             withEnv(["PATH+NODEJS=${nodejs}/bin"]) {
+    //                 def sonarScanner = tool('SonarQube-Scanner') +'/bin/sonar-scanner';
+
+    //                 withSonarQubeEnv('sonar.bk.datev.de') {
+    //                     sh "${sonarScanner} ${getSonarBranchParameter()}"
+    //                 }
+    //                 stash name: 'sonar-scanner-report', includes: '.scannerwork/report-task.txt'
+    //             }
+    //         }
+    //     }
+    // }
+
+    // stage(_stages.qualityGate) {
+    //     gitlabCommitStatus(_stages.qualityGate) {
+    //         timeout(time: 1, unit: 'HOURS') {
+    //             waitForQualityGate(abortPipeline: true)
+    //         }
+    //     }
+    // }
+
+    //***************************//
+    //******** PUBLISH *********//
+    //*************************//
+    milestone 1
+    // stage(_stages.npmPublish) {
+    //         inputWithTimeout time: 24, unit: 'HOURS', message: 'Do you want to publish to artifactory (npm-mirror)?', continueAfterAbort: true, showTimeoutInMessage: true, {
+    //             node('Linux') {
+    //                 gitlabCommitStatus(_stages.npmPublish) {
+    //                     try {
+    //                         killZombies()
+    //                         deleteDir()
+
+    //                         unstash 'workspace_npm-build-webapp-theme-crick'
+
+    //                         def nodejs = tool 'nodejs-v8'
+    //                         withEnv(["PATH+NODEJS=${nodejs}/bin"]) {
+    //                             configFileProvider([configFile(fileId: MIRROR_NAME, targetLocation: '.npmrc')]) {
+    //                                 npmPublish(incrementMajor: false, incrementMinor: false, incrementPatch: false)
+    //                             }
+    //                         }
+
+    //                     }
+    //                     catch(Exception error) {
+    //                         currentBuild.result = 'FAILURE'
+    //                         throw error
+    //                     }
+    //                     finally {
+    //                         killZombies()
+    //                         deleteDir()
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    stage(_stages.npmPublish) {
+        gitlabCommitStatus(_stages.npmPublish) {
+            inputWithTimeout time: 24, unit: 'HOURS', message: 'Do you want to publish the packages to npm-registry in artifactory?', continueAfterAbort: true, showTimeoutInMessage: true, {
+                node ('Linux') {
+                    try {
+                        killZombies()
+                        deleteDir()
+
+                        unstash 'workspace_npm-build-webapp-theme-crick'
+
+                        def nodejs = tool 'nodejs'
+
+                        withEnv(["PATH+NODEJS=${nodejs}/bin"]) {
+                            sh 'npm publish dist --loglevel verbose'
+                        }
+                    }
+                    catch (error) {
+                        throw error
+                    }
+                    finally {
+                        killZombies()
+                        deleteDir()
+                    }
+                }
+            }
+        }
+    }
+
+}

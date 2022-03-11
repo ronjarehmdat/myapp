@@ -1,0 +1,52 @@
+{
+    "name": "@datev/webapp-theme-crick",
+    "version": "4.0.0",
+    "description": "DATEV webapp theme crick",
+    "license": "SEE LICENSE IN LICENSE",
+    "author": {
+        "email": "webtechnology@datev.de",
+        "name": "DATEV eG",
+        "url": "https://www.datev.de"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.zd.datev.de/webappcommunity/frontend/webapp-theme-crick.git"
+    },
+    "keywords": [
+        "bootstrap",
+        "bootstrap4",
+        "dna-theme",
+        "theme",
+        "sass",
+        "scss",
+        "css",
+        "ria"
+    ],
+    "scripts": {
+        "build": "gulp build",
+        "gulp": "gulp",
+        "start": "npm run build",
+        "watch": "gulp watch",
+        "sprite:icons": "gulp sprite:icons",
+        "sprite:svgs": "svg-sprite --config sprite-config.json src/assets/svgs/**/*svg",
+        "transpile:scss": "gulp transpile:scss"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@datev/svg-sprite": "^1.5.0",
+        "autoprefixer": "^9.6.0",
+        "del": "^4.1.1",
+        "gulp": "^4.0.0",
+        "gulp-less": "^4.0.1",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^8.0.0",
+        "gulp-rename": "^1.4.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-watch": "^5.0.1",
+        "gulp.spritesmith": "^6.9.0",
+        "merge-stream": "^1.0.1",
+        "ng-inline-svg": "^8.5.1",
+        "sass": "^1.36.0",
+        "vinyl-buffer": "^1.0.1"
+    }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="fi-information-32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<filter  id="drop-shadow1">
+	<feGaussianBlur  in="SourceAlpha" stdDeviation="1"></feGaussianBlur>
+	<feOffset  dx="1" dy="2" result="offsetblur"></feOffset>
+	<feFlood  flood-color="#555B5D"></feFlood>
+	<feComposite  in2="offsetblur" operator="in"></feComposite>
+	<feComponentTransfer>
+		<feFuncA  slope="0.5" type="linear"></feFuncA>
+		<!--            slope is the opacity of the shadow            -->
+	</feComponentTransfer>
+</filter>
+<g id="fi-information-32-schatten" style="filter:url(#drop-shadow1);">
+	<rect x="3" y="3" style="fill:#FFFFFF;" width="26" height="26"/>
+</g>
+<rect id="fi-information-32-kontur" x="2" y="2" style="fill:#2E4557;fill-opacity:0.9;" width="28" height="28"/>
+<linearGradient id="fi-information-32-farbe_1_" gradientUnits="userSpaceOnUse" x1="-3.7738" y1="4.5836" x2="29.8691" y2="24.0073">
+	<stop  offset="0" style="stop-color:#DBF1FB"/>
+	<stop  offset="0.5" style="stop-color:#3FA4DA"/>
+	<stop  offset="1" style="stop-color:#0A8DC6"/>
+</linearGradient>
+<rect id="fi-information-32-farbe" x="3" y="3" style="fill:url(#fi-information-32-farbe_1_);" width="26" height="26"/>
+<path id="fi-information-32-schatten-i" style="fill:#414141;fill-opacity:0.3;" d="M13,13h6v11.978
+	c0,0.335,0.086,0.574,0.257,0.717C19.504,25.898,19.815,26,20.19,26H21v1h-8v-1h1.614c0.478,0,0.828-0.109,1.052-0.328
+	C15.888,25.454,16,25.136,16,24.719v-8.996c0-0.569-0.174-0.999-0.522-1.288C15.13,14.144,14.614,14,13.929,14H13V13z"/>
+<circle id="fi-information-32-schatten-i-punkt" style="fill:#414141;fill-opacity:0.3;" cx="17" cy="8" r="1.875"/>
+<path id="fi-information-32-farbe-i" style="fill:#FFFFFF;" d="M12,12h6v11.978c0,0.335,0.086,0.574,0.257,0.717
+	C18.504,24.898,18.815,25,19.19,25H20v1h-8v-1h1.614c0.478,0,0.828-0.109,1.052-0.328C14.888,24.454,15,24.136,15,23.719v-8.996
+	c0-0.569-0.174-0.999-0.522-1.288C14.13,13.144,13.614,13,12.929,13H12V12z"/>
+<circle id="fi-information-32-farbe-i-punkt" style="fill:#FFFFFF;" cx="16" cy="7" r="1.875"/>
+</svg>

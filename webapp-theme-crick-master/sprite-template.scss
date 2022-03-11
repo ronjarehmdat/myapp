@@ -1,0 +1,39 @@
+{{#hasMixin}}@mixin {{mixinName}} {
+  background: url("{{{sprite}}}") no-repeat;
+}
+
+{{#hasCommon}}.{{commonName}} {
+@include {{mixinName}};
+}
+
+{{/hasCommon}}{{/hasMixin}}{{^hasMixin}}{{#hasCommon}}.{{/hasCommon}}{{^hasCommon}}%{{/hasCommon}}{{commonName}} {
+  background-image: url("#{$dna-assets-path}/sprites/{{{sprite}}}");
+  background-repeat: no-repeat;
+}
+
+{{/hasMixin}}{{#shapes}}{{#selector.shape}}
+
+${{expression}}-height: rem({{height.outer}}px);
+${{expression}}-width: rem({{width.outer}}px);
+
+@mixin {{expression}}{{^last}},
+{{/last}}{{/selector.shape}} {
+{{^hasCommon}}{{#hasMixin}}@include {{mixinName}};{{/hasMixin}}{{^hasMixin}}  @extend %{{commonName}};{{/hasMixin}}
+{{/hasCommon}}  background-position: {{position.relative.xy}};
+  height: rem({{height.outer}}px);
+  width: rem({{width.outer}}px);
+}
+
+{{#dimensions.extra}}
+@mixin {{#selector.dimensions}}{{expression}}{{^last}},
+{{/last}}{{/selector.dimensions}} {
+  height: rem({{height.outer}}px);
+  width: rem({{width.outer}}px);
+}
+.genepool .{{#selector.dimensions}}{{expression}}{{^last}},
+{{/last}}{{/selector.dimensions}} {
+  @include {{#selector.dimensions}}{{expression}}{{^last}},
+  {{/last}}{{/selector.dimensions}}();
+}
+{{/dimensions.extra}}
+{{/shapes}}

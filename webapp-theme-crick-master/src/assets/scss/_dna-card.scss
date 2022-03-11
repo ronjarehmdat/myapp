@@ -1,0 +1,81 @@
+/* Kachel | Bootstrap-Card
+ *
+ *
+ * 	Kachel-Container-Styles; auf divs anzuwenden.
+ *
+ * .dna-card-start     Startseitenkacheln
+ * .dna-card-cockpit   Cockpitkacheln
+ * .dna-card-form      Kacheln für Formulare / Werteeingaben
+ * .dna-card-info      Kacheln zur Informationsdarstellung; in Kombination mit Formularkacheln auf eine Maske
+ *
+ * .dna-card           Basisstyles für alle Kacheltypen - nicht im html einzusetzen
+ */
+@use "sass:math";
+
+@import "variables";
+@import "bootstrap/mixins";
+@import "dna-mixins";
+
+/* Basics for all card elements */
+@mixin dna-card() {
+    background-color: $card-bg;
+    margin-bottom: $dna-spacer-4x;
+    min-width: rem(80px);
+    min-height: rem(40px);
+    @include dna-box-shadow;
+}
+
+.dna-card-start,
+.dna-card-cockpit,
+.dna-card-form,
+.dna-card-info {
+    @include dna-card;
+}
+
+.dna-card-start {
+    border-bottom: rem(3px) solid $dna-petrol;
+    border-bottom-left-radius: $dna-border-radius-xl;
+}
+
+.dna-card-cockpit {
+    border-bottom: rem(3px) solid $dna-border-light;
+
+    > img {
+        margin: -$card-spacer-x;
+    }
+}
+
+.dna-card-form {
+    background-color: $dna-mittelgrau;
+}
+
+// For use with columns inside of tile add .dna-card-col to tile
+.dna-card-form.dna-card-col {
+    padding-left: rem(4px);
+    padding-right: rem(4px);
+}
+
+.dna-card-info {
+    min-height: rem(20px);
+}
+
+// Erweiterung der row-Klasse um bündiges Layout des Card-Inhaltes mit restlichem Content zu ermöglichen
+.row.dna-card-deck,
+.card-deck.dna-card-deck {
+    margin-right: (-$card-spacer-x - math.div($grid-gutter-width, 2));
+    margin-left: (-$card-spacer-x - math.div($grid-gutter-width, 2));
+
+    @include media-breakpoint-down(xs) {
+        margin-left: (-$dna-box-padding-xs - math.div($grid-gutter-width, 2));
+        margin-right: (-$dna-box-padding-xs - math.div($grid-gutter-width, 2));
+    }
+}
+
+
+.row.dna-card-deck,
+.row.card-deck {
+    .card {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

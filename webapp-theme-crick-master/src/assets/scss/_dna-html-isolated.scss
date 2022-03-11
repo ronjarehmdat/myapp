@@ -1,0 +1,18 @@
+//
+// HTML
+// --------------------------------------------------
+@import "variables";
+
+@mixin isolated-dna-html {
+    font-size: $dna-rem-factor; //10px bei Standardeinstellungen des Browsers; Basis für alle -rem-Angaben.
+    min-height: 100%;
+}
+
+@mixin isolated-dna-body {
+    min-height: 100%;
+}
+
+& {
+    @include isolated-dna-html;
+    @include isolated-dna-body;
+}
